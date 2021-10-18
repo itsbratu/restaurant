@@ -11,7 +11,6 @@ const Register = ()=>{
     const [pass , setPass] = useState('');
     const [rePass , setRePass] = useState('');
     const [email , setEmail] = useState('');
-    const [person , setPerson] = useState(new Person('' , '' , '' , '' , ''));
     const [invalidRegister , setInvalidRegister] = useState({errNick : '*' , errFirstName : '*' , errLastName : '*' , errPass : '*' , errRePass : '*' , errEmail : '*'});
 
     const currentAttrs = () =>{
