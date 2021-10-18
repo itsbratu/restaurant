@@ -53,8 +53,14 @@
   display: grid;
   border: 3px solid black;
   margin: 2rem auto 0 auto;
-  padding: 5px;
-  font-size: 40px;
+  padding: 10px;
+  font-family: "Bebas Neue", cursive;
+  font-size: 50px;
+}
+
+.register-btn:hover {
+  opacity: 0.9;
+  border-radius: 20px;
 }
 
 .output {

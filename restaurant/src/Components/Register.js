@@ -52,7 +52,7 @@ const Register = ()=>{
                 </label>
                 <input id="email" type = "email" value = {email} onChange = {(e)=>setEmail(e.target.value)}/>
             </div>
-            <button className = 'register-btn' onClick = {()=>registerPerson(nick , firstName , lastName , pass , rePass , email , setInvalidRegister)}><i class="fas fa-arrow-right"></i></button>
+            <button className = 'register-btn' onClick = {()=>registerPerson(nick , firstName , lastName , pass , rePass , email , setInvalidRegister)}>Submit</button>
             <div className = 'output'>
                 <h4>{currentAttrs()}</h4>
                 <h4>{currentErrors()}</h4>
