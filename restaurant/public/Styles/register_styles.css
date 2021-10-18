@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.register-header {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10vh;
+  align-items: center;
+  justify-items: center;
+}
+
+.register-header h1 {
+  padding-top: 5px;
+  font-size: 60px;
+  font-family: "Bebas Neue", cursive;
+  cursor: pointer;
+}
+
+.register-form {
+  display: grid;
+  grid-gap: 5px;
+  background: #838383;
+  border: 2px solid green;
+  border-radius: 15px;
+  margin: 1rem auto 0 auto;
+  max-width: 500px;
+  padding: 10px;
+}
+
+.register-form label {
+  padding: 0.5em 0.5em 0.5em 0;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 1000;
+  letter-spacing: 2px;
+  font-size: 20px;
+}
+
+.register-form input {
+  background: #fff;
+  border: 1px solid #9c9c9c;
+  padding: 0.7em;
+  margin-bottom: 0.5rem;
+  font-size: 17px;
+}
+
+.register-btn {
+  display: grid;
+  border: 3px solid black;
+  margin: 2rem auto 0 auto;
+  padding: 5px;
+  font-size: 40px;
+}
+
+.output {
+  display: inline-block;
+}
+
+.output h4 {
+  font-size: 20px;
+}
+
+.icon-color {
+  color: rgba(50, 20, 250);
+}

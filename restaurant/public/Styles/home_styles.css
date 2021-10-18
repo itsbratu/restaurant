@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Festive&display=swap");
+
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+}
+
+/* NAVBAR */
+
+.home-section {
+  background-image: url("https://images.pexels.com/photos/1484516/pexels-photo-1484516.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  overflow: hidden;
+  background-attachment: fixed;
+}
+
+.nav-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: transparent;
+  font-family: "Roboto Mono", monospace;
+  height: 15vh;
+  margin: 0 -1em;
+}
+
+.nav-logo-text {
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 20px;
+  color: #c5aa6a;
+}
+
+.nav-logo-image {
+  height: 110px;
+  width: 120px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 30%;
+}
+
+.nav-logo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 25%;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  letter-spacing: 5px;
+  font-size: 20px;
+  color: whitesmoke;
+  opacity: 1;
+}
+
+.nav-register {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 20%;
+  list-style: none;
+}
+
+.nav-register li a {
+  text-decoration: none;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.nav-links a {
+  position: relative;
+}
+
+nav-links li,
+a:after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 0%;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s;
+}
+
+nav-links li,
+a:hover:after {
+  width: 100%;
+}
+
+nav-links #info_li,
+#info_a:after {
+  background-color: yellow;
+}
+
+nav-links #menu_li,
+#menu_a:after {
+  background-color: green;
+}
+
+nav-links#reviews_li,
+#reviews_a:after {
+  background-color: purple;
+}
+
+nav-links #contatct_li,
+#contact_a:after {
+  background-color: red;
+}
+
+.nav-welcome {
+  text-align: center;
+  position: absolute;
+  top: 350px;
+  left: 0px;
+  width: 100vw;
+  height: 100px;
+  color: rgb(255, 140, 0);
+
+  font-size: 150px;
+  letter-spacing: 5px;
+  font-family: "Festive", cursive;
+  text-transform: uppercase;
+  transition-property: color;
+  transition-delay: 0.3s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+}
+
+.nav-welcome:hover {
+  color: rgb(255, 90, 0);
+}
