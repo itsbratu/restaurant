@@ -5,6 +5,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  --transition-border-color: border 1500ms linear;
 }
 
 .register-header {
@@ -16,21 +18,33 @@
 }
 
 .register-header h1 {
-  padding-top: 5px;
-  font-size: 60px;
+  padding-top: 15px;
+  letter-spacing: 15px;
+  font-size: 125px;
   font-family: "Bebas Neue", cursive;
   cursor: pointer;
 }
 
 .register-form {
   display: grid;
-  grid-gap: 5px;
-  background: #838383;
-  border: 2px solid green;
-  border-radius: 15px;
+  grid-gap: 12px;
+  background: rgba(191, 191, 191, 1);
+  border: 5px solid salmon;
   margin: 1rem auto 0 auto;
-  max-width: 500px;
+  max-width: 850px;
   padding: 10px;
+  transition: var(--transition-border-color);
+}
+
+.register-form:hover {
+  border-color: black;
+  border-radius: 25px;
+}
+
+.register-invalid-input {
+  font-size: 30px;
+  font-style: italic;
+  text-transform: lowercase;
 }
 
 .register-form label {
@@ -49,13 +63,25 @@
   font-size: 17px;
 }
 
+.register-warning-input {
+  font-size: 15px;
+  font-style: italic;
+}
+
 .register-btn {
   display: grid;
-  border: 3px solid black;
+  border: 3px solid salmon;
   margin: 2rem auto 0 auto;
   padding: 10px;
   font-family: "Bebas Neue", cursive;
   font-size: 50px;
+  cursor: pointer;
+  transition: var(--transition-border-color);
+}
+
+.register-btn:hover {
+  border-color: black;
+  border-radius: 25px;
 }
 
 .register-btn:hover {

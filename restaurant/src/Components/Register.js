@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import { Person } from '../Utils/Person';
-import { registerPerson } from '../Utils/RegisterValidation';
+import { LENGTH_MSG, MATCH_MSG, registerPerson } from '../Utils/RegisterValidation';
 
 const Register = ()=>{
 
@@ -21,6 +21,27 @@ const Register = ()=>{
         return invalidRegister.errNick + ' ' + invalidRegister.errFirstName + ' ' + invalidRegister.errLastName + ' ' + invalidRegister.errPass + ' ' + invalidRegister.errRePass + ' ' + invalidRegister.errEmail;
     }
 
+    const stringSplit = (errString)=>{
+        return errString.split('\n').map(str => <h2 className = 'register-invalid-input'>{str}</h2>);
+    }
+
+    const renderNickErr = ()=>{
+        let nickErrString = '';
+        switch(invalidRegister.errNick){
+            case 'INVALID_NICK':
+                nickErrString = 'Invalid nickname\n-must contain at least 5 characters\n-must not start with a digit or a symbol(0-9!@#$%^&*-_+=)';
+                break;
+            case LENGTH_MSG:
+                nickErrString = 'Invalid nickname\n-must contain at least 5 characters';
+                break;
+            case MATCH_MSG:
+                nickErrString = 'Invalid nickname\n-must not start with a digit or a symbol(0-9!@#$%^&*-_+=)';
+                break;
+            default:
+        }
+        return stringSplit(nickErrString);
+    }
+
     return(
         <container className = 'register-container'>
             <div className = 'register-header'>
@@ -29,6 +50,7 @@ const Register = ()=>{
             <div className = 'register-form'>
                 <label for="nickname">
                     <i class="fas fa-id-card icon-color"></i> Nickname:
+                    {renderNickErr()}
                 </label>
                 <input id="nickname" type = "text" value = {nick} onChange = {(e)=>setNick(e.target.value)}/>
                 <label for="firstName">
