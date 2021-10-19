@@ -7,6 +7,7 @@
   box-sizing: border-box;
 
   --transition-border-color: border 1500ms linear;
+  --transition-input-bghover: background-color 500ms linear;
 }
 
 .register-header {
@@ -19,6 +20,7 @@
 
 .register-header h1 {
   padding-top: 15px;
+  padding-left: 60px;
   letter-spacing: 15px;
   font-size: 125px;
   font-family: "Bebas Neue", cursive;
@@ -28,7 +30,7 @@
 .register-form {
   display: grid;
   grid-gap: 12px;
-  background: rgba(191, 191, 191, 1);
+  background: rgb(129, 133, 137);
   border: 5px solid salmon;
   margin: 1rem auto 0 auto;
   max-width: 850px;
@@ -42,7 +44,8 @@
 }
 
 .register-invalid-input {
-  font-size: 30px;
+  font-size: 15px;
+  color: rgba(207, 0, 15, 1);
   font-style: italic;
   text-transform: lowercase;
 }
@@ -61,9 +64,14 @@
   padding: 0.7em;
   margin-bottom: 0.5rem;
   font-size: 17px;
+  transition: var(--transition-input-bghover);
 }
 
-.register-warning-input {
+.register-form input:hover {
+  background-color: rgba(232, 232, 232, 1);
+}
+
+.reg .register-warning-input {
   font-size: 15px;
   font-style: italic;
 }
@@ -72,8 +80,12 @@
   display: grid;
   border: 3px solid salmon;
   margin: 2rem auto 0 auto;
-  padding: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-left: 60px;
+  padding-right: 60px;
   font-family: "Bebas Neue", cursive;
+  min-width: 100px;
   font-size: 50px;
   cursor: pointer;
   transition: var(--transition-border-color);
