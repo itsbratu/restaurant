@@ -67,7 +67,7 @@
   transition: var(--transition-input-bghover);
 }
 
-.register-form input:hover {
+.register-form input:focus {
   background-color: rgba(232, 232, 232, 1);
 }
 
@@ -99,14 +99,6 @@
 .register-btn:hover {
   opacity: 0.9;
   border-radius: 20px;
-}
-
-.output {
-  display: inline-block;
-}
-
-.output h4 {
-  font-size: 20px;
 }
 
 .icon-color {
