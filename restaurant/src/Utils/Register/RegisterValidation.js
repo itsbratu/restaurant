@@ -41,3 +41,5 @@ export function registerPerson(nick , firstName , lastName , pass , rePass , ema
     }
 
 }
+
+export default validateFields;
