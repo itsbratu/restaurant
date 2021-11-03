@@ -1,5 +1,24 @@
 {
   "dependencies": {
+    "express": "^4.17.1",
     "react-router-dom": "^5.3.0"
-  }
+  },
+  "name": "restaurant",
+  "version": "1.0.0",
+  "main": "backend.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsbratu/restaurant.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itsbratu/restaurant/issues"
+  },
+  "homepage": "https://github.com/itsbratu/restaurant#readme",
+  "description": ""
 }

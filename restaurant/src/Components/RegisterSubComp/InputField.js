@@ -9,7 +9,7 @@ const InputField = (props) =>{
     }
 
     return(
-        <input id = {props.id} type = {TypeSwitch(props.id)} value = {props.value} onChange = {(e) => props.setField(e.target.value)}/>
+        <input id = {props.id} type = {TypeSwitch(props.id)} value = {props.value} onChange = {(e) => props.setField(e.target.value)} style = {props.errMsg ? {border : "4px solid red"} : {}}/>
     )
 }
 

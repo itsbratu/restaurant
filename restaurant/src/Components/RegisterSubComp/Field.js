@@ -7,7 +7,7 @@ const AttributeField = (props)=>{
     return(
         <>
             <LabelField type = {props.type} icon = {props.icon} errMsg = {props.errMsg}/>
-            <InputField id = {props.type} value = {props.value} setField = {props.setField}/>
+            <InputField id = {props.type} value = {props.value} setField = {props.setField} errMsg = {props.errMsg}/>
         </>
     )
 }
