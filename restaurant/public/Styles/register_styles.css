@@ -30,8 +30,6 @@
 .register-form {
   display: grid;
   grid-gap: 12px;
-  background: rgb(129, 133, 137);
-  border: 5px solid salmon;
   margin: 1rem auto 0 auto;
   max-width: 850px;
   padding: 10px;

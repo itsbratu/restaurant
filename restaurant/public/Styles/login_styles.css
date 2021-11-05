@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
+
+login-form{
+    margin : 0px;
+    padding : 0px;
+    box-sizing: border-box;
+    margin : 3px solid grey;
+}
+
+.login-img-container{
+    text-align: center;
+    margin : 12px 0 12px 0;
+}
+
+.login-img{
+    width: 18%;
+    border-radius: 60%;
+}
+
+.login-info-label{
+    font-size: 25px;
+    font-family: "Roboto Mono", monospace;
+}
+
+.login-info-input{
+    width: 70%;
+    height: 50px;
+    padding: 12px 20px;
+    display: block;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.login-info-container{
+    padding-top: 10px;
+    padding-left: 670px;
+    padding-right: 450px;
+}
+
+.login-submit-button {
+    background-color: #034727;
+    color: white;
+    padding: 14px 50px;
+    margin: 30px;
+    margin-left : 130px;
+    cursor: pointer;
+    width: 40%;
+    height: 70px;
+    font-size: 30px;
+    letter-spacing: 5px;
+    font-family: "Bebas Neue", cursive;
+}
+
+.login-error{
+    font-size: 20px;
+    margin-top : 30px;
+    margin-left: 170px;
+    font-style : italic;
+    color : red;
+}
+
+.login-submit-button:hover{
+    opacity: 0.85;
+}

@@ -50,8 +50,9 @@ export function registerPerson(nick , firstName , lastName , pass , rePass , ema
         Axios.post("http://localhost:4000/add" , {
             user : currUser
         }).then(() => {
-            console.log("User added!")
+            console.log("Good job!");
         })
+        setRedirect(true);
     }
 
 }
