@@ -1,6 +1,3 @@
-import UserValidator from './Validator';
-import InvalidInput from './Validator';
-
 const express = require('express')
 const app = express();
 const mysql = require('mysql')
@@ -19,29 +16,30 @@ const users_db = mysql.createConnection({
 app.post("/add" , (req , res)=>{
     const user_add = req.body.user;
     const {nick , firstName , lastName , pass , rePass , email} = user_add;
-
-    try{
-        const validator = new UserValidator(user_add);
-        validator.validate();
-        users_db.query(
-            "INSERT INTO users (email , nickname , firstname , lastname , pass , repass) VALUES (?,?,?,?,?,?)",
-            [email , nick , firstName , lastName , pass , rePass],
-            (err , result) => {
-                if(err){
-                    console.log(err);
-                }else{
-                    res.send("New user inserted!")
-                }
+    users_db.query(
+        "INSERT INTO users (email , nickname , firstname , lastname , pass , repass) VALUES (?,?,?,?,?,?)",
+        [email , nick , firstName , lastName , pass , rePass],
+        (err , result) => {
+            if(err){
+                console.log(err);
+            }else{
+                res.send("New user inserted!")
             }
-        );
-
-    }catch(err){
-        if(err instanceof InvalidInput){
-            console.log(err.name);
-            alert("Invalid user input : \n" + err.message);
         }
-    }
+    );
 });
+
+app.get("/all" , (req , res) => {
+    users_db.query(
+        "SELECT * FROM users" , (err , result) => {
+            if(err){
+                console.log(err);
+            }else{
+                res.send(result);
+            }
+        }
+    )
+})
 
 app.listen(4000 , () =>{
     console.log("Server running fine!")

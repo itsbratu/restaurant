@@ -46,3 +46,10 @@ export const REGEX_HOLDER = {
         {"^[A-Za-z0-9_!#$%&'*+/=?`{|}~^.-]+@[A-Za-z.-]+$" : '-Invalid email!'}
     ]
 }
+
+//ROUTING ADDRESSES
+
+export const ROUTES_WITHOUT_HOMEPAGE = {
+    '/login' : false,
+    '/register' : false
+}

@@ -1,17 +1,12 @@
 import React from 'react'
 import Logo from '../Images/logo_noodles.png'
-import { useHistory } from 'react-router';
-
-const ROUTES_WITHOUT_HOMEPAGE = {
-    '/login' : false,
-    '/register' : false
-}
+import { ROUTES_WITHOUT_HOMEPAGE } from '../Utils/Register/Constants'
+import { useHistory } from 'react-router'
 
 const Home = (props)=>{
 
-    let history = useHistory();
+    let routing = useHistory();
     const currentLocation = props.location.pathname;
-
     if(ROUTES_WITHOUT_HOMEPAGE[currentLocation]) return null;
 
     return( 
@@ -31,10 +26,10 @@ const Home = (props)=>{
                 </ul>
                 <ul className = 'nav-register'>
                     <li><a onClick={()=>{
-                        history.push('./login')
+                        routing.push('./login');
                     }}>Login</a></li>
                     <li><a onClick={()=>{
-                        history.push('./register')
+                        routing.push('./register')
                     }}>Register</a></li>
                 </ul>
             </nav>

@@ -1,5 +1,7 @@
+import axios from "axios";
 import { REGEX_HOLDER } from "./Constants";
-import add_user from "./RegisterNewUser"
+
+import Axios from 'axios';
 
 function validateFields(currUser , currErr){
     for(const [field , regexList] of Object.entries(REGEX_HOLDER)){
@@ -21,12 +23,12 @@ function validateFields(currUser , currErr){
     }
 }
 
-export function registerPerson(nick , firstName , lastName , pass , rePass , email , setInvalidRegister){
+export function registerPerson(nick , firstName , lastName , pass , rePass , email , users , setInvalidRegister , setRedirect){
     const currUser = {nick : nick , firstName : firstName , lastName : lastName , pass : pass , rePass : rePass , email : email};
     var currErr = {nick : '' , firstName : '' , lastName : '' , pass : '' , rePass : '' , email : ''};
     validateFields(currUser , currErr);
+    
     const keys = Object.keys(currErr);
-
     let valid_user = true;
     keys.forEach((key , index) =>{
         if(currErr[key].length != 0){
@@ -35,9 +37,21 @@ export function registerPerson(nick , firstName , lastName , pass , rePass , ema
         }
     })
 
+    users.forEach((user) => {
+        if(user.email === currUser.email){
+            valid_user = false;
+            alert("User already registered!Redirecting to login form...")
+            setRedirect(true);
+        }
+    })
+
     if(valid_user){
-        alert("Your user is valid , yey!");
-        add_user(currUser);
+        alert("User registered succesfully!");    
+        Axios.post("http://localhost:4000/add" , {
+            user : currUser
+        }).then(() => {
+            console.log("User added!")
+        })
     }
 
 }
