@@ -5,31 +5,28 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-  --transition-border-color: border 1500ms linear;
-  --transition-input-bghover: background-color 500ms linear;
 }
 
-.register-header {
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 10vh;
-  align-items: center;
-  justify-items: center;
+.register-container{
+  margin : 0px;
+  padding : 0px;
+  box-sizing: border-box;
+  margin : 3px solid grey;
 }
 
-.register-header h1 {
-  padding-top: 15px;
-  padding-left: 60px;
-  letter-spacing: 15px;
-  font-size: 125px;
-  font-family: "Bebas Neue", cursive;
-  cursor: pointer;
+.register-img-container{
+  text-align: center;
+  margin : 12px 0 12px 0;
+}
+
+.register-img{
+  width: 18%;
+  border-radius: 60%;
 }
 
 .register-form {
   display: grid;
-  grid-gap: 12px;
+  grid-gap: 0px;
   margin: 1rem auto 0 auto;
   max-width: 850px;
   padding: 10px;
@@ -61,12 +58,8 @@
   border: 1px solid #9c9c9c;
   padding: 0.7em;
   margin-bottom: 0.5rem;
-  font-size: 17px;
+  font-size: 23px;
   transition: var(--transition-input-bghover);
-}
-
-.register-form input:focus {
-  background-color: rgba(232, 232, 232, 1);
 }
 
 .reg .register-warning-input {
@@ -76,7 +69,8 @@
 
 .register-btn {
   display: grid;
-  border: 3px solid salmon;
+  background-color: #034727;
+  color: white;
   margin: 2rem auto 0 auto;
   padding-bottom: 10px;
   padding-top: 10px;
@@ -86,17 +80,11 @@
   min-width: 100px;
   font-size: 50px;
   cursor: pointer;
-  transition: var(--transition-border-color);
-}
-
-.register-btn:hover {
-  border-color: black;
-  border-radius: 25px;
 }
 
 .register-btn:hover {
   opacity: 0.9;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .icon-color {

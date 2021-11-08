@@ -1,4 +1,5 @@
 import React from 'react'
+import RegisterLogo from '../Images/logo_register.jpg'
 import {useState} from 'react'
 import { useHistory } from 'react-router'
 import {registerPerson} from '../Utils/Register/RegisterValidation'
@@ -29,6 +30,7 @@ const Register = (props)=>{
         });
     } 
 
+
     let routing = useHistory();
     const currentLocation = props.location.pathname;
     if(ROUTES_WITHOUT_HOMEPAGE[currentLocation]) return null;
@@ -36,8 +38,8 @@ const Register = (props)=>{
 
     return(
         <container className = 'register-container'>
-            <div className = 'register-header'>
-                <h1>Register</h1>   
+            <div className = 'register-img-container'>
+                <img src = {RegisterLogo} className = "register-img"></img>
             </div>
             <div className = 'register-form'>
                 {FIELDS.map((currentField)=>{
