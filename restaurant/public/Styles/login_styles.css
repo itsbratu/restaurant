@@ -21,6 +21,7 @@ login-form{
 .login-info-label{
     font-size: 25px;
     font-family: "Roboto Mono", monospace;
+    letter-spacing: 1px;
 }
 
 .login-info-input{
@@ -30,11 +31,14 @@ login-form{
     display: block;
     border: 1px solid black;
     box-sizing: border-box;
+    font-size : 20px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 800;
 }
 
 .login-info-container{
     padding-top: 10px;
-    padding-left: 670px;
+    padding-left: 640px;
     padding-right: 450px;
 }
 
@@ -43,11 +47,12 @@ login-form{
     color: white;
     padding: 14px 50px;
     margin: 30px;
-    margin-left : 75px;
+    margin-left : 100px;
     cursor: pointer;
     width: 40%;
     height: 70px;
-    font-size: 30px;
+    font-size: 35px;
+    min-width: 100px;
     letter-spacing: 5px;
     font-family: "Bebas Neue", cursive;
 }
@@ -55,7 +60,7 @@ login-form{
 .login-error{
     font-size: 20px;
     margin-top : 30px;
-    margin-left: 90px;
+    margin-left: 110px;
     font-style : italic;
     color : red;
 }

@@ -47,7 +47,7 @@ export function registerPerson(nick , firstName , lastName , pass , rePass , ema
 
     if(valid_user){
         alert("User registered succesfully!");    
-        Axios.post("http://localhost:4000/add" , {
+        Axios.post("http://localhost:4000/register" , {
             user : currUser
         }).then(() => {
             console.log("Good job!");
