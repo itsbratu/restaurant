@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import RegisterLogo from '../Images/logo_register.jpg'
 import {useState} from 'react'
 import { useHistory } from 'react-router'
@@ -7,6 +7,7 @@ import Field from './RegisterSubComp/Field'
 import { FIELDS } from '../Utils/Register/Constants'
 import { ROUTES_WITHOUT_HOMEPAGE } from '../Utils/Register/Constants'
 import Axios from "axios"
+import axios from 'axios'
 
 const Register = (props)=>{
 
@@ -16,20 +17,23 @@ const Register = (props)=>{
     const [pass , setPass] = useState('');  
     const [rePass , setRePass] = useState('');
     const [email , setEmail] = useState('');
-    const [users , setUsers] = useState(getEntries());
+    const [users , setUsers] = useState([]);
     const [redirect , setRedirect] = useState(false);
     const [invalidRegister , setInvalidRegister] = useState({nick : '' , firstName : '' , lastName : '' , pass : '' , rePass : '' , email : ''});
+
+    useEffect(()=>{
+        Axios.get("http://localhost:4000/all")
+        .then(response =>{
+            setUsers(response.data);
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+    } , [])
 
     function getErrorMessage(value){
         return invalidRegister[value];
     }
-
-    function getEntries(){
-        Axios.get("http://localhost:4000/all").then((response) => {
-            setUsers(response.data);
-        });
-    } 
-
 
     let routing = useHistory();
     const currentLocation = props.location.pathname;
@@ -38,6 +42,7 @@ const Register = (props)=>{
 
     return(
         <container className = 'register-container'>
+            {console.log(users)}
             <div className = 'register-img-container'>
                 <img src = {RegisterLogo} className = "register-img"></img>
             </div>

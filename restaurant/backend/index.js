@@ -19,7 +19,7 @@ app.post("/add" , (req , res)=>{
     users_db.query(
         "INSERT INTO users (email , nickname , firstname , lastname , pass , repass) VALUES (?,?,?,?,?,?)",
         [email , nick , firstName , lastName , pass , rePass],
-        (err , result) => {
+        (err , _) => {
             if(err){
                 console.log(err);
             }else{
