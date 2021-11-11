@@ -5,6 +5,8 @@ import { useHistory } from 'react-router'
 import { useState } from 'react'
 import { eraseCookie , getCookie } from 'Utils/Cookies'
 import RegisterLinks from './HomeSubComp/RegisterLinks'
+import NavigationLinks from './HomeSubComp/NavigationLinks'
+import NavigationLogo from './HomeSubComp/NavigationLogo'
 
 const Home = (props)=>{
 
@@ -26,18 +28,8 @@ const Home = (props)=>{
     return( 
         <div className = 'home-section'>
             <nav className = 'nav-section'>
-                <div className = 'nav-logo'>
-                    <img src={Logo} alt = 'noodles' className = 'nav-logo-image'/>
-                    <div className = 'nav-logo-text'>
-                        <h4>pasterino</h4>
-                    </div>
-                </div>
-                <ul className = 'nav-links'>
-                    <li id = 'info_li'><a href='#' id = 'info_a'>Info</a></li>
-                    <li id = 'menu_li'><a href='#' id = 'menu_a'>Menu</a></li>
-                    <li id = 'reviews_li'><a href='#' id = 'reviews_a'>Reviews</a></li>
-                    <li id = 'contact_li'><a href='#' id = 'contact_a'>Contact</a></li>
-                </ul>
+                <NavigationLogo logo = {Logo}/>
+                <NavigationLinks/>
                 <RegisterLinks isLogged = {loggedUser != null} logout = {clearCookies}/>
             </nav>
             <div className = 'nav-welcome'>

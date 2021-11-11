@@ -11,8 +11,8 @@ const RegisterLinks = (props) =>{
             case false:
                 return(
                     <>
-                        <li><a onClick={()=>{routing.push('./login')}}>Login</a></li>
-                        <li><a onClick={()=>{routing.push('./register')}}>Register</a></li>        
+                        <li><a onClick={()=>{routing.push('./login')}}><i class="fas fa-sign-in-alt"></i>Login</a></li>
+                        <li><a onClick={()=>{routing.push('./register')}}><i class="fas fa-clipboard-check"></i>Register</a></li>        
                     </>
                 );
                 break;
