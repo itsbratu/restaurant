@@ -7,7 +7,6 @@ import { useState , useEffect} from 'react';
 import { useHistory } from 'react-router'
 
 const Login = (props)=>{
-
     function clearInputFields(){
         document.getElementById("input-mail").value = "";
         document.getElementById("input-pass").value = "";

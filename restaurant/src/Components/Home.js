@@ -2,8 +2,22 @@ import React from 'react'
 import Logo from '../Images/logo_noodles.png'
 import { ROUTES_WITHOUT_HOMEPAGE } from '../Utils/Register/Constants'
 import { useHistory } from 'react-router'
+import { useState } from 'react'
+import { eraseCookie , getCookie } from 'Utils/Cookies'
+import RegisterLinks from './HomeSubComp/RegisterLinks'
 
 const Home = (props)=>{
+
+    const clearCookies = () =>{
+        eraseCookie("email");
+        setLoggedUser(null);
+    }
+
+    const [loggedUser , setLoggedUser] = useState(null);
+    
+    if(getCookie("email") != null && loggedUser == null){
+        setLoggedUser(getCookie("email"));
+    }
 
     let routing = useHistory();
     const currentLocation = props.location.pathname;
@@ -24,17 +38,11 @@ const Home = (props)=>{
                     <li id = 'reviews_li'><a href='#' id = 'reviews_a'>Reviews</a></li>
                     <li id = 'contact_li'><a href='#' id = 'contact_a'>Contact</a></li>
                 </ul>
-                <ul className = 'nav-register'>
-                    <li><a onClick={()=>{
-                        routing.push('./login');
-                    }}>Login</a></li>
-                    <li><a onClick={()=>{
-                        routing.push('./register')
-                    }}>Register</a></li>
-                </ul>
+                <RegisterLinks isLogged = {loggedUser != null} logout = {clearCookies}/>
             </nav>
             <div className = 'nav-welcome'>
                 &#126;pasterino&#126;
+                <button onClick = {() => clearCookies()}>Cool button</button>
             </div>
         </div>
     );

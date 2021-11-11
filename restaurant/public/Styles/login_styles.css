@@ -68,3 +68,63 @@ login-form{
 .login-submit-button:hover{
     opacity: 0.85;
 }
+
+.login-captcha{
+    margin-left: 295px;
+    margin-top : 15px
+}
+
+@media screen and (max-width : 670px){
+    .login-img{
+        width: 50%;
+    }
+    .login-info-container{
+        padding-top: 15px;
+        padding-left: 10px;
+        padding-right: 15px;
+        margin-left : 150px;
+    }
+    .login-submit-button{
+        margin-left : 75px;
+        margin-top : 40px;
+        min-width: 140px;
+    }
+    .login-error{
+        font-size: 20px;
+        margin-left: 70px;
+    }
+}
+
+@media screen and (min-width : 1900px ) and (max-width : 2100px){
+    .login-img{
+        width: 20%;
+    }
+    .login-info-container{
+        padding-left: 720px;
+        padding-right: 450px;
+    }
+    .login-submit-button{
+        padding: 14px 50px;
+        margin: 30px;
+        margin-left : 145px;
+    }
+}
+
+@media screen and (min-width : 2300px ) and (max-width : 2560px){
+    .login-img{
+        width: 18%;
+    }
+    .login-info-container{
+        padding-left: 830px;
+        padding-right: 450px;
+    }
+    .login-submit-button{
+        padding: 14px 60px;
+        margin: 30px;
+        margin-left : 200px;
+    }
+    .login-error{
+        font-size: 25px;
+        margin-left: 310px;
+    }
+}
