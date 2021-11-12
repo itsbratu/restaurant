@@ -4,7 +4,7 @@ import { ROUTES_WITHOUT_HOMEPAGE } from '../Utils/Register/Constants'
 import { useHistory } from 'react-router'
 import { useState } from 'react'
 import { eraseCookie , getCookie } from 'Utils/Cookies'
-import RegisterLinks from './HomeSubComp/RegisterLinks'
+import NavigationRegister from './HomeSubComp/NavigationRegister'
 import NavigationLinks from './HomeSubComp/NavigationLinks'
 import NavigationLogo from './HomeSubComp/NavigationLogo'
 
@@ -30,7 +30,7 @@ const Home = (props)=>{
             <nav className = 'nav-section'>
                 <NavigationLogo logo = {Logo}/>
                 <NavigationLinks/>
-                <RegisterLinks isLogged = {loggedUser != null} logout = {clearCookies}/>
+                <NavigationRegister isLogged = {loggedUser != null} logout = {clearCookies}/>
             </nav>
             <div className = 'nav-welcome'>
                 &#126;pasterino&#126;

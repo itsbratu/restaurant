@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router'
 
-const RegisterLinks = (props) =>{
+const NavigationRegister = (props) =>{
 
     let routing = useHistory();
     const isLogged = props.isLogged;
@@ -15,7 +15,7 @@ const RegisterLinks = (props) =>{
                         <li><a onClick={()=>{routing.push('./register')}}><i class="fas fa-clipboard-check"></i>Register</a></li>        
                     </>
                 );
-                break;
+
             default:
                 return(
                     <>
@@ -23,7 +23,6 @@ const RegisterLinks = (props) =>{
                         <li><a onClick = {()=>{props.logout()}}><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                     </>
                 );
-                break;
         }
     }
     
@@ -34,4 +33,4 @@ const RegisterLinks = (props) =>{
     );
 }
 
-export default RegisterLinks;
+export default NavigationRegister;
