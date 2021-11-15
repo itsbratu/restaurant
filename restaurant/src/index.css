@@ -1,3 +1,124 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.home-card-quality{
+    @apply flex flex-col border-4 justify-evenly p-10 m-10
+    bg-transparent w-2/12 rounded-2xl
+    transition duration-500 ease-in-out border-transparent hover:border-purple-700
+    transform hover:translate-y-1 hover:scale-125 select-none;
+}
+
+.home-card-delivery{
+    @apply flex flex-col border-4 justify-evenly p-10 m-10
+    bg-transparent w-2/12 rounded-2xl
+    transition duration-500 ease-in-out border-transparent hover:border-yellow-500
+    transform hover:translate-y-1 hover:scale-125 select-none;
+}
+
+.home-card-service{
+    @apply flex flex-col border-4 justify-evenly p-10 m-10
+    bg-transparent w-2/12 rounded-2xl
+    transition duration-500 ease-in-out border-transparent hover:border-green-500
+    transform hover:translate-y-1 hover:scale-125 select-none;
+}
+
+.register-card-icon{
+    @apply my-10 mx-28 w-24 h-24;
+}
+
+.register-card-text{
+    @apply w-full h-3/4 mt-5 ml-2;
+}
+
+.info-center-items{
+    @apply flex flex-col items-center justify-center;
+}
+
+.info-header-styling{
+    @apply mt-40 text-6xl font-general-font text-white;
+}
+
+.info-p-styling{
+    @apply text-2xl p-32 font-general-font text-white;
+}
+
+.info-p-indent{
+    @apply -mt-44 indent-lg;
+}
+
+.footer-main{
+    @apply font-general-font bg-black text-white h-full;
+}
+
+.footer-grid{
+    @apply grid grid-cols-3 gap-2;
+}
+
+.footer-grid-item{
+    @apply flex flex-col items-center justify-center text-white;
+}
+
+.footer-header{
+    @apply pt-5 text-8xl font-footer-font
+    transition duration-1000 ease-in-out border-transparent hover:text-gray-400
+    transform hover:translate-y-1 hover:scale-110 select-none;
+}
+
+.about-text{
+    @apply text-4xl px-8 pt-24 indent-sm;
+}
+
+.footer-navigation-links{
+    @apply flex flex-col text-lg px-8 pt-11;
+}
+
+.footer-link{
+    @apply text-8xl pt-5 cursor-pointer;
+}
+
+.footer-link-home{
+    @apply hover:text-yellow-400;
+}
+
+.footer-link-info{
+    @apply hover:text-green-600;
+}
+
+.footer-link-menu{
+    @apply hover:text-purple-800;
+}
+
+.footer-link-reviews{
+    @apply hover:text-red-600;
+}
+
+.footer-line{
+    @apply w-full h-3 border-b-4 border-gray-400 mt-28;
+}
+
+.footer-social{
+    @apply flex justify-evenly mt-40;
+}
+
+.footer-copyright-text{
+    @apply -mt-6 text-4xl;
+}
+
+.footer-social-logo{
+    @apply w-60
+    transition duration-500 ease-in-out
+    transform hover:translate-y-1 hover:scale-125;
+}
+
+.footer-social-copyright{
+    @apply flex flex-col w-1/2 mt-14;
+}
+
+.footer-social-pages{
+    @apply flex flex-col mt-28 mr-10 text-5xl;   
+}
+
+.footer-copyright-logo-text{
+    @apply font-footer-logo-text text-yellow-600 text-5xl;
+}

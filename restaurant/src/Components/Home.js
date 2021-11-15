@@ -7,6 +7,10 @@ import { eraseCookie , getCookie } from 'Utils/Cookies'
 import NavigationRegister from './HomeSubComp/NavigationRegister'
 import NavigationLinks from './HomeSubComp/NavigationLinks'
 import NavigationLogo from './HomeSubComp/NavigationLogo'
+import HomeCard from './HomeSubComp/HomeCard'
+import Info from './Info'
+import Menu from './Menu'
+import Footer from './Footer'
 
 const Home = (props)=>{
 
@@ -32,10 +36,14 @@ const Home = (props)=>{
                 <NavigationLinks/>
                 <NavigationRegister isLogged = {loggedUser != null} logout = {clearCookies}/>
             </nav>
-            <div className = 'nav-welcome'>
-                &#126;pasterino&#126;
-                <button onClick = {() => clearCookies()}>Cool button</button>
+            <div className = 'flex justify-around align-middle min-w-full h-2/4 mt-56'>
+                <HomeCard cardType = {"home-card-quality"} icon = {"fas fa-check-double"} text = {"Quality & diversity!"} textColor = {"text-green-500"} color = {"red"}/>            
+                <HomeCard cardType = {"home-card-delivery"} icon = {"fas fa-motorcycle"} text = {"Fast & reliable delivery!"} textColor = {"text-purple-800"} color = {"red"}/>
+                <HomeCard cardType = {"home-card-service"} icon = {"fas fa-phone"} text = {"Helpful customer service!"} textColor = {"text-yellow-500"} color = {"red"}/>
             </div>
+            <Info />
+            <Menu />
+            <Footer />
         </div>
     );
 }

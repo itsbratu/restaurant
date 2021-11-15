@@ -8,6 +8,7 @@ login-form{
     margin : 3px solid grey;
 }
 
+
 .login-img-container{
     text-align: center;
     margin : 12px 0 12px 0;
@@ -67,11 +68,6 @@ login-form{
 
 .login-submit-button:hover{
     opacity: 0.85;
-}
-
-.login-captcha{
-    margin-left: 295px;
-    margin-top : 15px
 }
 
 @media screen and (max-width : 670px){

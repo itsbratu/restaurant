@@ -11,16 +11,16 @@ const NavigationRegister = (props) =>{
             case false:
                 return(
                     <>
-                        <li><a onClick={()=>{routing.push('./login')}}><i class="fas fa-sign-in-alt"></i>Login</a></li>
-                        <li><a onClick={()=>{routing.push('./register')}}><i class="fas fa-clipboard-check"></i>Register</a></li>        
+                        <li><a onClick={()=>{routing.push('./login')}} class = "select-none"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+                        <li><a onClick={()=>{routing.push('./register')}} class = "select-none"><i class="fas fa-clipboard-check"></i>Register</a></li>        
                     </>
                 );
 
             default:
                 return(
                     <>
-                        <li><a onClick={()=>{routing.push('./profile')}}><i class="fas fa-user-alt"></i>Profile</a></li>
-                        <li><a onClick = {()=>{props.logout()}}><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                        <li><a onClick={()=>{routing.push('./profile')}} class = "select-none"><i class="fas fa-user-alt"></i>Profile</a></li>
+                        <li><a onClick = {()=>{props.logout()}} class = "select-none"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
                     </>
                 );
         }
