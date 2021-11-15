@@ -3,6 +3,8 @@ import { GoogleMap , withScriptjs , withGoogleMap , Marker} from 'react-google-m
 import Logo from '../Images/logo_noodles.png'
 import darkTheme from 'Utils/Footer/MapStyling';
 
+require('dotenv').config()
+
 function Map(){
     return(
         <GoogleMap defaultZoom = {13} 
@@ -15,8 +17,10 @@ function Map(){
 }
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
+const REACT_APP_MY_GOOGLE_MAPS_API = process.env.REACT_APP_MY_GOOGLE_MAPS_API;
 
 const Footer = () =>{
+
     return(
         <div className = "footer-main">
             <div className = "footer-grid">
@@ -36,7 +40,7 @@ const Footer = () =>{
                 <div className = "footer-grid-item">
                     <h1 className = "footer-header">Find us</h1>
                     <WrappedMap 
-                        googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCnfpocav62BLp-CyVGLIf84bBg1hMq7-E"
+                        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${REACT_APP_MY_GOOGLE_MAPS_API}`}
                         loadingElement={<div style={{ height: `100%` }} />}
                         containerElement={<div style={{height: `500px`, width: `600px`}} />}
                         mapElement={<div style={{height: `600px`, width: `600px`}} />} 
