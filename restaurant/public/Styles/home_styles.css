@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Festive&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 * {
   margin: 0;
@@ -33,15 +34,16 @@ body {
 }
 
 .nav-logo-text {
-  font-size: 40px;
-  text-transform: uppercase;
-  letter-spacing: 20px;
+  font-size: 80px;
+  text-transform: none;
+  font-family : 'Dancing Script';
+  letter-spacing: 15px;
   color: #FF6347;
 }
 
 .nav-logo-image {
-  height: 190px;
-  width: 200px;
+  height: 160px;
+  width: 150px;
 }
 
 .nav-links {
@@ -126,3 +128,22 @@ nav-links #contatct_li,
 #contact_a:after {
   background-color: red;
 }
+
+/*Animation for jumping icons*/
+@keyframes pop {
+  0% { transform: translate(-50%, -50%) scale(1.25, 0.75); }
+  50% { transform: translate(-50%, -150%) scale(1, 1); }
+  55% { transform: translate(-50%, -150%) rotate(15deg); }
+  60% { transform: translate(-50%, -150%) rotate(-15deg); }
+  65% { transform: translate(-50%, -150%) rotate(15deg); }
+  70% { transform: translate(-50%, -150%) rotate(-15deg); }
+  100% { transform: translate(-50%, -50%) scale(1.25, 0.75); }
+}
+
+#parcel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  animation: pop 1.2s infinite;

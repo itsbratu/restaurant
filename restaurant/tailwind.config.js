@@ -32,7 +32,7 @@ module.exports = {
           lg: '10rem',
         }),
       }),
-    }
+    },
   },
   variants: {
     animation: ["motion-safe"],

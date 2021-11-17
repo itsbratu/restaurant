@@ -30,7 +30,7 @@ const Home = (props)=>{
     if(ROUTES_WITHOUT_HOMEPAGE[currentLocation]) return null;
 
     return( 
-        <div className = 'home-section'>
+        <div id = 'home' className = 'home-section'>
             <nav className = 'nav-section'>
                 <NavigationLogo logo = {Logo}/>
                 <NavigationLinks/>
@@ -41,9 +41,11 @@ const Home = (props)=>{
                 <HomeCard cardType = {"home-card-delivery"} icon = {"fas fa-motorcycle"} text = {"Fast & reliable delivery!"} textColor = {"text-purple-800"} color = {"red"}/>
                 <HomeCard cardType = {"home-card-service"} icon = {"fas fa-phone"} text = {"Helpful customer service!"} textColor = {"text-yellow-500"} color = {"red"}/>
             </div>
-            <Info />
-            <Menu />
-            <Footer />
+            < >
+                {loggedUser!= null && <Info />}
+                {loggedUser!= null && <Menu />}
+                {loggedUser!= null && <Footer />}
+            </>
         </div>
     );
 }

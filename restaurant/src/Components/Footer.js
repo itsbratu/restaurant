@@ -22,7 +22,7 @@ const REACT_APP_MY_GOOGLE_MAPS_API = process.env.REACT_APP_MY_GOOGLE_MAPS_API;
 const Footer = () =>{
 
     return(
-        <div className = "footer-main">
+        <div id = "contact" className = "footer-main">
             <div className = "footer-grid">
                 <div className = "footer-grid-item">
                     <h1 className = "footer-header header-about">About Us</h1>
@@ -31,9 +31,9 @@ const Footer = () =>{
                 <div className = "footer-grid-item">
                     <h1 className = "footer-header header-align">Navigation</h1>
                     <div class = "footer-navigation-links">
-                        <a className = "footer-link footer-link-home select-none"><h1>HOME</h1></a>
-                        <a className = "footer-link footer-link-info select-none"><h1>INFO</h1></a>
-                        <a className = "footer-link footer-link-menu select-none"><h1>MENU</h1></a>
+                        <a className = "footer-link footer-link-home select-none" href = "#home"><h1>HOME</h1></a>
+                        <a className = "footer-link footer-link-info select-none" href = "#info"><h1>INFO</h1></a>
+                        <a className = "footer-link footer-link-menu select-none" href = "#menu"><h1>MENU</h1></a>
                         <a className = "footer-link footer-link-reviews select-none"><h1>REVIEWS</h1></a>
                     </div>
                 </div>

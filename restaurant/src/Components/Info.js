@@ -2,7 +2,7 @@ import React from 'react'
 
 const Info = () =>{
     return(
-        <div className = "h-3/4 w-full mt-64 bg-black">
+        <div id = "info" className = "h-3/4 w-full mt-60 bg-black">
             <div className = "info-center-items">
                 <p className = "info-header-styling select-none">Pasterino , Cluj-Napoca's italian delight!</p>
             </div>

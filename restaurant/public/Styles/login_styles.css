@@ -12,6 +12,8 @@ login-form{
 .login-img-container{
     text-align: center;
     margin : 12px 0 12px 0;
+    display : flex;
+    justify-content : center;
 }
 
 .login-img{
@@ -117,7 +119,7 @@ login-form{
     .login-submit-button{
         padding: 14px 60px;
         margin: 30px;
-        margin-left : 200px;
+        margin-left : 160px;
     }
     .login-error{
         font-size: 25px;

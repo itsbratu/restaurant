@@ -36,7 +36,7 @@ const Login = (props)=>{
     return(
         <div className = "login-form">
             <div className = "login-img-container">
-                <img src = {LoginImage} alt = "login" className = "login-img"></img>
+                <img  src = {LoginImage}  alt = "login" className = "login-img"></img>
             </div>
             <div className = "login-info-container">
                 <label for = "email" className = "login-info-label"><b>Mail:</b></label>
