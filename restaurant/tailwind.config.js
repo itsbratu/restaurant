@@ -5,15 +5,23 @@ module.exports = {
     fontFamily : {
       'general-font' : ['Roboto Mono'],
       'footer-font' : ['Bebas Neue'],
-      'footer-logo-text' : ['Dancing Script']
+      'artistic' : ['Dancing Script']
     },
     extend: {
       width: {
         '2/12' : '20%'
       },
+      grayscale: {
+        40 : '40%',
+        0 : '0%'
+      },
+      backgroundImage: {
+        'home-section' : "url('BG-IMAGES/home-section.jpg')",
+      },
       animation: {
         fadeIn: "fadeIn 1s ease-in forwards"
       },
+      border: ['hover'],
       keyframes: {
         fadeIn: {
           "0%": { opacity: 0 },
@@ -37,7 +45,7 @@ module.exports = {
   variants: {
     animation: ["motion-safe"],
     textIndent: ['responsive'],
-
+    filter: ['hover', 'focus'],
   },
   plugins: [
     require('tailwindcss-text-indent')(),

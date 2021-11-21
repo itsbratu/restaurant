@@ -1,0 +1,20 @@
+.menu_item_css{
+    height : 550px;
+    width : 850px;
+}
+
+.menu_item_img_css{
+    filter : grayscale(85%);
+    transition : all 2 ease;
+}
+
+.menu_item_img_css:hover{
+    filter : grayscale(0%);
+}
+
+.menu_item_info_container_css{
+    width : 545px;
+    height : 100%;
+    display : flex;
+    flex-direction : column;
+}
