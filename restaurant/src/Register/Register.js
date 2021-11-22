@@ -39,20 +39,21 @@ const Register = (props)=>{
     {redirect && routing.push('./login')}
 
     return(
-        <container className = 'register-container'>
-            {console.log(users)}
-            <div className = 'register-img-container'>
-                <img src='/images/logo_register.jpg' className = "register-img"></img>
-            </div>
-            <div className = 'register-form'>
+        <container className = 'h-screen bg-gradient-to-b from-gray-300 to bg-gray-700 flex flex-col md:flex-row items-center justify-evenly'>
+            <div className = "h-3/7 w-1/3 max-w-lg p-4 flex flex-col">
                 {FIELDS.map((currentField)=>{
-                    return(
-                        <Field type = {currentField.type} icon = {currentField.icon} value = {eval(currentField.value)}
-                        setField = {eval(currentField.setField)} errMsg = {getErrorMessage(currentField.value)}/>
-                    )
-                })}
+                        return(
+                            <Field type = {currentField.type} icon = {currentField.icon} value = {eval(currentField.value)}
+                            setField = {eval(currentField.setField)} errMsg = {getErrorMessage(currentField.value)}/>
+                        )
+                    })}
+                <div className = "flex items-center justify-evenly">
+                    <button className = 'flex items-center justify-center mt-10 w-1/2 h-3/5 sm:w-2/3 bg-blue-400 font-general-font' onClick = {() => registerPerson(nick , firstName , lastName , pass , rePass , email , users , setInvalidRegister , setRedirect)}>Submit</button>
+                </div>
             </div>
-            <button className = 'register-btn' onClick = {() => registerPerson(nick , firstName , lastName , pass , rePass , email , users , setInvalidRegister , setRedirect)}>Submit</button>
+            <div className = "flex items-center justify-center w-60 sm:w-28">
+                <img src='/images/logo_register.jpg' className = "rounded-full"></img>
+            </div>
         </container>    
     );
 }

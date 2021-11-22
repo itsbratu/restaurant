@@ -11,7 +11,7 @@ const LabelField = (props) =>{
     return(
         <label for = {props.type}>
             <i class = {props.icon}></i> {capitalizedType}:
-            {stringSplit(props.errMsg)}
+            <p className = "font-general-font text-xs sm:text-tiny">{stringSplit(props.errMsg)}</p>
         </label>
     )
 }
