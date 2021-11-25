@@ -6,12 +6,12 @@ const RegisterSection = (props) => {
             {props.logged==null && <div className = "absolute left-1/2 border-2 border-black rounded h-full"></div>}
             {props.logged==null && <div className = "flex flex-row justify-evenly w-full absolute top-1/2">
                 <button 
-                    className = "text-6xl font-artistic font-extrabold mr-32 transition duration-500 ease-in-out transform hover:scale-150"
+                    className = "text-4xl font-artistic font-extrabold mr-32 transition duration-500 ease-in-out transform hover:scale-150"
                     onClick = {()=>{props.routing.push('./login')}}> 
                     Login
                 </button>
                 <button 
-                    className = "text-6xl font-artistic font-extrabold ml-32 transition duration-500 ease-in-out transform hover:scale-150"
+                    className = "text-4xl font-artistic font-extrabold ml-32 transition duration-500 ease-in-out transform hover:scale-150"
                     onClick = {()=>{props.routing.push('./register')}}>
                     Register
                 </button>
