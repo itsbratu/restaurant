@@ -34,6 +34,13 @@ module.exports = {
       },
       backgroundImage: {
         'home-section' : "url('BG-IMAGES/home-section.jpg')",
+        'info-section' : "url('BG-IMAGES/info-section.jpg')",
+      },
+      gridTemplateAreas: {
+        'info-layout': [
+          'img-section img-section text',
+          'img-section img-section text',
+        ],
       },
       animation: {
         fadeIn: "fadeIn 1s ease-in forwards"
@@ -63,8 +70,10 @@ module.exports = {
     animation: ["motion-safe"],
     textIndent: ['responsive'],
     filter: ['hover', 'focus'],
+    gridTemplateAreas: ['responsive'],
   },
   plugins: [
     require('tailwindcss-text-indent')(),
+    require('@savvywombat/tailwindcss-grid-areas'),
   ],
 }

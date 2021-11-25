@@ -2,17 +2,17 @@ import React from 'react'
 
 const Info = () => {
     return(
-        <div id = "info" className = "h-full w-full bg-black">
-            <div className = "info-center-items">
-                <p className = "info-header-styling select-none flex text-center">Pasterino , Cluj-Napoca's italian delight!</p>
+        <div className = "grid grid-areas-info-layout h-96 w-11/12">
+            <div className = "bg-info-section bg-cover bg-center rounded-3xl filter grayscale-40 grid-in-img-section"/>
+            <div className = "grid-in-text ml-5">
+                <div className = "flex flex-col text-center justify-evenly mt-5 select-none">
+                    <h2 className = "font-artistic text-4xl">QUALITY</h2>
+                    <h2 className = "font-artistic text-4xl mt-10">QUANTITY</h2>
+                    <h2 className = "font-artistic text-4xl mt-10">ELEGANCE</h2>
+                    <div className = "font-artistic text-4xl mt-10">PASSION</div>
+                </div>
             </div>
-            <div className = "info-center-items">
-                <p className = "info-p-styling select-none">We are delighted that our doors are now open.</p>
-                <p className = "info-p-styling info-p-indent select-none">Working with the freshest ingredients, imported pasta, and top quality cuts of meat, Pasterino. owes a great deal of its successful menu to its purveyors such as Middendorf Meats, Joe Fazio’s Bakery, DiMare’s Specialty Foods, Louisa Foods, Allen Foods, Paramount Liquor, Grey Eagle Distributors, Lohr Distributors, and Coca-Cola.</p>
-                <p className = "info-p-styling info-p-indent select-none">In an effort to provide dining patrons with new tastes in Italian cuisine, Pasterino works on an ongoing basis to improve existing dishes and to develop new menu items that appeal to today’s increasing number of consumers who insist on consistently high-quality, good tasting Italian fare with authentic “old country” flavor.</p>
-                <p className = "info-p-styling select-none -mt-44">xxxxxxx</p>
-            </div>
-        </div>
+        </div>  
     );
 }
 

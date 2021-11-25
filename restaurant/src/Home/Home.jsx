@@ -3,8 +3,10 @@ import { ROUTES_WITHOUT_HOMEPAGE } from '../Register/constants'
 import { useHistory } from 'react-router'
 import { useState } from 'react'
 import { eraseCookie , getCookie } from 'cookies'
+import Line from 'Line/Line'
 import NavBar from 'HomeSubComp/NavBar'
 import RegisterSection from 'HomeSubComp/RegisterSection'
+import Info from 'Info/Info'
 
 const Home = (props)=>{
 
@@ -27,6 +29,9 @@ const Home = (props)=>{
         <div className = "grid gap-5 ml-10 my-5 p-0 box-border max-w-full overflow-hidden">
             <NavBar logged = {loggedUser} clearCookies = {clearCookies}/>
             <RegisterSection routing = {routing} logged = {loggedUser}/>
+            <Line/>
+            <Info/>
+            <Line/>
         </div>
     );
 }
