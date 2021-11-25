@@ -33,14 +33,14 @@ const Home = (props)=>{
         <div className = "grid gap-5 ml-10 my-5 p-0 box-border max-w-full overflow-hidden">
             <NavBar logged = {loggedUser} clearCookies = {clearCookies}/>
             <RegisterSection routing = {routing} logged = {loggedUser}/>
-            <Line/>
+            <Line id = {"info"}/>
             <Info/>
-            <Line/>
+            <Line id = {"menu"}/>
             <MenuA/>
             <MenuB/>
-            <Line/>
+            <Line id = {"reviews"}/>
             <Reviews/>
-            <Line/>
+            <Line id = {"contact"}/>
             <Contact/>
         </div>
     );

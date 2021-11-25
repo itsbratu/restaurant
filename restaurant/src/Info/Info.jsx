@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Info = () => {
+
     return(
         <div className = "grid grid-areas-info-layout h-96 w-11/12">
             <div className = "bg-info-section bg-cover bg-center rounded-3xl grid-in-img-section"/>

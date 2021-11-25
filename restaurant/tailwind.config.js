@@ -35,7 +35,9 @@ module.exports = {
       backgroundImage: {
         'home-section' : "url('BG-IMAGES/home-section.jpg')",
         'info-section' : "url('BG-IMAGES/info-section.jpg')",
-        'carbonara' : "url('BG-IMAGES/carbonara.jpg')",
+        'bolognese' : "url('BG-IMAGES/bolognese.jpg')",
+        'lasagna' : "url('BG-IMAGES/lasagna.jpg')",
+        'mac' : "url('BG-IMAGES/mac.jpeg')",
       },
       gridTemplateAreas: {
         'info-layout': [
@@ -48,7 +50,13 @@ module.exports = {
           'section3 section3 section2',
           'section3 section3 section2',
         ],
-        'menuA-carbonara': [
+        'menuA-bolognese': [
+          'symbol symbol symbol',
+          'symbol symbol symbol',
+          'symbol symbol symbol',
+          'info info info',
+        ],
+        'menuA-lasagna': [
           'symbol symbol symbol',
           'symbol symbol symbol',
           'symbol symbol symbol',
@@ -98,12 +106,15 @@ module.exports = {
     },
   },
   variants: {
-    animation: ["motion-safe"],
-    textIndent: ['responsive'],
-    filter: ['hover', 'focus'],
-    gridTemplateAreas: ['responsive'],
-    backgroundOpacity : ['hover' , 'active'],
-    backgroundColor : ['hover'],
+    extend: {
+      zIndex: ['hover', 'active'],
+      animation: ["motion-safe"],
+      textIndent: ['responsive'],
+      filter: ['hover', 'focus'],
+      gridTemplateAreas: ['responsive'],
+      backgroundOpacity : ['hover' , 'active'],
+      backgroundColor : ['hover'],
+    }
   },
   plugins: [
     require('tailwindcss-text-indent')(),
