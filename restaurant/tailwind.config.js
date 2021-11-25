@@ -35,6 +35,7 @@ module.exports = {
       backgroundImage: {
         'home-section' : "url('BG-IMAGES/home-section.jpg')",
         'info-section' : "url('BG-IMAGES/info-section.jpg')",
+        'carbonara' : "url('BG-IMAGES/carbonara.jpg')",
       },
       gridTemplateAreas: {
         'info-layout': [
@@ -44,8 +45,14 @@ module.exports = {
         'menuA-layout': [
           'section1 section1 section2',
           'section1 section1 section2',
-          'section4 section4 section3',
-          'section4 section4 section3',
+          'section3 section3 section2',
+          'section3 section3 section2',
+        ],
+        'menuA-carbonara': [
+          'symbol symbol symbol',
+          'symbol symbol symbol',
+          'symbol symbol symbol',
+          'info info info',
         ],
         'menuB-layout': [
           '. vertical1 vertical2 vertical2',
@@ -95,6 +102,8 @@ module.exports = {
     textIndent: ['responsive'],
     filter: ['hover', 'focus'],
     gridTemplateAreas: ['responsive'],
+    backgroundOpacity : ['hover' , 'active'],
+    backgroundColor : ['hover'],
   },
   plugins: [
     require('tailwindcss-text-indent')(),
