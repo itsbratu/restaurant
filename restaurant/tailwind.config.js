@@ -29,7 +29,7 @@ module.exports = {
         '2/12' : '20%'
       },
       grayscale: {
-        40 : '40%',
+        70 : '70%',
         0 : '0%'
       },
       backgroundImage: {
@@ -40,6 +40,30 @@ module.exports = {
         'info-layout': [
           'img-section img-section text',
           'img-section img-section text',
+        ],
+        'menuA-layout': [
+          'section1 section1 section2',
+          'section1 section1 section2',
+          'section4 section4 section3',
+          'section4 section4 section3',
+        ],
+        'menuB-layout': [
+          '. vertical1 vertical2 vertical2',
+          '. vertical1 vertical2 vertical2',
+          '. vertical1 vertical2 vertical2',
+          '. vertical3 vertical3 vertical3',
+          '. vertical3 vertical3 vertical3',
+        ],
+        'reviews-layout': [
+          'review1 review2 review3',
+          'review1 review2 review3',
+          'review1 review2 review3',
+        ],
+        'contact-layout': [
+          'map map map',
+          'map map map',
+          'map map map',
+          '.  info .',
         ],
       },
       animation: {

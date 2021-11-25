@@ -7,6 +7,10 @@ import Line from 'Line/Line'
 import NavBar from 'HomeSubComp/NavBar'
 import RegisterSection from 'HomeSubComp/RegisterSection'
 import Info from 'Info/Info'
+import MenuA from 'Menu/MenuA'
+import MenuB from 'Menu/MenuB'
+import Reviews from 'Reviews/Reviews'
+import Contact from 'Contact/Contact'
 
 const Home = (props)=>{
 
@@ -14,7 +18,7 @@ const Home = (props)=>{
         eraseCookie("email");
         setLoggedUser(null);
     }
-
+    
     const [loggedUser , setLoggedUser] = useState(null);
     
     if(getCookie("email") != null && loggedUser == null){
@@ -32,6 +36,12 @@ const Home = (props)=>{
             <Line/>
             <Info/>
             <Line/>
+            <MenuA/>
+            <MenuB/>
+            <Line/>
+            <Reviews/>
+            <Line/>
+            <Contact/>
         </div>
     );
 }
