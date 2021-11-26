@@ -131,6 +131,19 @@ app.get("/all" , (_ , res) => {
     )
 })
 
+app.get("/all_reviews" , (_ , res) => {
+    console.log("OK!");
+    users_db.query(
+        "SELECT * FROM reviews" , (err , result) => {
+            if(err){
+                console.log(err);
+            }else{
+                res.send(result);
+            }
+        }
+    )
+})
+
 app.listen(4000 , () =>{
     console.log("Server running fine!")
 })

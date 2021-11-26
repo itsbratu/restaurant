@@ -37,7 +37,7 @@ module.exports = {
         'info-section' : "url('BG-IMAGES/info-section.jpg')",
         'bolognese' : "url('BG-IMAGES/bolognese.jpg')",
         'lasagna' : "url('BG-IMAGES/lasagna.jpg')",
-        'mac' : "url('BG-IMAGES/mac.jpeg')",
+        'mac' : "url('BG-IMAGES/mac_and_cheese.jpg')",
         'creamy' : "url('BG-IMAGES/creamy.jpg')",
         'carbonara' : "url('BG-IMAGES/carbonara.jpg')",
         'seapasta' : "url('BG-IMAGES/sea_pasta.jpg')",
@@ -67,9 +67,10 @@ module.exports = {
           '. section_creamy section_creamy section_carbonara section_carbonara section_sea_pasta section_sea_pasta ',
         ],
         'reviews-layout': [
-          'review1 review2 review3',
-          'review1 review2 review3',
-          'review1 review2 review3',
+          'review0 review1 review2',
+          'review0 review1 review2',
+          'review0 review1 review2',
+          'buttons buttons buttons',
         ],
         'contact-layout': [
           'map map map',

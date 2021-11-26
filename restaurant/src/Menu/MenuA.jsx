@@ -76,7 +76,7 @@ const MenuA = () => {
             case false:
                 return(
                     <div className = "grid grid-in-section_mac bg-mac bg-cover bg-no-repeat bg-center animation ease-in-out duration-500 transform hover:scale-110 hover:z-10 cursor-pointers" onClick = {() => {setMacInfo(!macInfo)}}>
-                        <div className = "flex flex-col justify-center text-5xl font-artistic pl-5 mt-1 select-none">
+                        <div className = "flex flex-col justify-start text-5xl font-artistic pl-5 mt-1 select-none">
                             <h1>Mac</h1>
                         </div>
                     </div>
