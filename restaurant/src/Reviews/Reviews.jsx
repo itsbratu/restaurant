@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Axios from "axios"
 import ReviewCard from './ReviewCard';
 
+
 const Reviews = () => {
 
     const [reviews , setReviews] = useState([]);
@@ -19,6 +20,7 @@ const Reviews = () => {
         })
     } , [])
 
+    
     function getReviewsID(startPos){
         switch(startPos){
             case(reviews.length-1):
@@ -30,24 +32,32 @@ const Reviews = () => {
         }
     }
 
-    function wrapperGetReview(cardNumber){
+    function wrapperGetReviews(){
+        var displayReviews = [];
         var reviewsIndex = getReviewsID(counter);
-        return reviews[reviewsIndex[cardNumber]-1];
+        //where 3 is the number of card reviews component
+        for(let index = 0 ; index < 3 ; ++index){
+            displayReviews.push(reviews[reviewsIndex[index]-1]);
+        }
+        return displayReviews;
     }
-    
-    console.log(wrapperGetReview(0));
-    console.log(wrapperGetReview(1));
-    console.log(wrapperGetReview(2));
+
+    console.log(reviews.length);
+    console.log(counter);
 
     return (
-        <div className = "grid grid-areas-reviews-layout gap-5 h-96 w-11/12 -mt-5">
-            <ReviewCard id = {0} review = {wrapperGetReview(0)}/>
-            <ReviewCard id = {1} review = {wrapperGetReview(1)}/>
-            <ReviewCard id = {2} review = {wrapperGetReview(2)}/>
+        <div className = "grid grid-areas-reviews-layout gap-5 h-screen w-11/12 -mt-5">
+            {wrapperGetReviews().map((review , index) => {
+                return(
+                    <>
+                        {typeof(review)!=="undefined" && <ReviewCard id = {index} review = {review}/>}
+                    </>
+                );
+            })}
             <div className = "grid-in-buttons">
-                <div className = "flex justify-around items-center h-full">
-                    <button className = "bg-white w-14" onClick = {() => {setCounter(counter % reviews.length + 1)}}>+</button>
-                    <button className = "bg-white w-14" onClick = {() => {counter!=1 ? setCounter(counter % reviews.length - 1) : setCounter(reviews.length)}}>-</button>
+                <div className = "flex justify-around items-center h-full -mt-5">
+                    <button className = "w-14" onClick = {() => {counter!=1 ? setCounter(counter % reviews.length - 1) : setCounter(reviews.length)}}><i class="fas fa-arrow-circle-left fa-3x"></i></button>
+                    <button className = "w-14" onClick = {() => {setCounter((counter % reviews.length) + 1)}}><i class="fas fa-arrow-circle-right fa-3x"></i></button>
                 </div>
             </div>
         </div>
