@@ -39,7 +39,8 @@ module.exports = {
         'lasagna' : "url('BG-IMAGES/lasagna.jpg')",
         'mac' : "url('BG-IMAGES/mac.jpeg')",
         'creamy' : "url('BG-IMAGES/creamy.jpg')",
-
+        'carbonara' : "url('BG-IMAGES/carbonara.jpg')",
+        'seapasta' : "url('BG-IMAGES/sea_pasta.jpg')",
       },
       gridTemplateAreas: {
         'info-layout': [
@@ -47,8 +48,8 @@ module.exports = {
           'img-section img-section text',
         ],
         'menuA-layout': [
-          'section_carbonara section_carbonara section_lasagna',
-          'section_carbonara section_carbonara section_lasagna',
+          'section_bolognese section_bolognese section_lasagna',
+          'section_bolognese section_bolognese section_lasagna',
           'section_mac section_mac section_lasagna',
           'section_mac section_mac section_lasagna',
         ],
@@ -59,11 +60,11 @@ module.exports = {
           'info info info',
         ],
         'menuB-layout': [
-          '. vertical1 vertical2 vertical2',
-          '. vertical1 vertical2 vertical2',
-          '. vertical1 vertical2 vertical2',
-          '. vertical3 vertical3 vertical3',
-          '. vertical3 vertical3 vertical3',
+          '. section_creamy section_creamy section_carbonara section_carbonara section_sea_pasta section_sea_pasta ',
+          '. section_creamy section_creamy section_carbonara section_carbonara section_sea_pasta section_sea_pasta ',
+          '. section_creamy section_creamy section_carbonara section_carbonara section_sea_pasta section_sea_pasta ',
+          '. section_creamy section_creamy section_carbonara section_carbonara section_sea_pasta section_sea_pasta ',
+          '. section_creamy section_creamy section_carbonara section_carbonara section_sea_pasta section_sea_pasta ',
         ],
         'reviews-layout': [
           'review1 review2 review3',

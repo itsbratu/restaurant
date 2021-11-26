@@ -12,7 +12,7 @@ const MenuA = () => {
         switch(bologneseInfo){
             case false:
                 return(
-                    <div className = "grid grid-in-section_carbonara bg-bolognese bg-cover bg-center animation ease-in-out duration-500 transform hover:scale-110 hover:z-10 cursor-pointer" onClick = {()=>{setBologneseInfo(!bologneseInfo)}}>
+                    <div className = "grid grid-in-section_bolognese bg-bolognese bg-cover bg-center animation ease-in-out duration-500 transform hover:scale-110 hover:z-10 cursor-pointer" onClick = {()=>{setBologneseInfo(!bologneseInfo)}}>
                         <div className = "grid grid-cols-2 gap-5">
                             <div className = "flex items-end">
                                 <h1 className = "text-5xl font-artistic py-5 px-5 select-none">Bolognese</h1>
@@ -22,7 +22,7 @@ const MenuA = () => {
                 );
             default:
                 return(
-                    <div className = "grid grid-in-section_carbonara bg-black opacity-80 cursor-pointer" onClick = {()=>{setBologneseInfo(!bologneseInfo)}}>
+                    <div className = "grid grid-in-section_bolognese bg-black opacity-75 cursor-pointer" onClick = {()=>{setBologneseInfo(!bologneseInfo)}}>
                         <div className = "grid grid-areas-menuA-horizontal-layout gap-5">
                             <div className = "grid grid-in-symbol text-white">
                                 <div className = "flex items-center justify-evenly select-none">
@@ -36,7 +36,7 @@ const MenuA = () => {
                             </div>
                             <div className = "grid grid-in-info text-white">
                                 <div className = "flex flex-col items-center">
-                                    <button className = "text-3xl font-general-font"><img src="/images/order.png" className = "w-12"/></button>
+                                    <button className = "text-3xl font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src="/images/order.png" className = "w-12"/></button>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +55,7 @@ const MenuA = () => {
                 )
             default:
                 return(
-                    <div className = "grid grid-in-section_lasagna bg-black opacity-90 cursor-pointer" onClick = {()=>{setLasagnaInfo(!lasagnaInfo)}}>
+                    <div className = "grid grid-in-section_lasagna bg-black opacity-80 cursor-pointer" onClick = {()=>{setLasagnaInfo(!lasagnaInfo)}}>
                         <div className = "flex flex-col items-center justify-evenly my-10 text-white">
                             <img src = "/images/lasagna.png " className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
                             <img src = "/images/minced-meat.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
@@ -64,7 +64,7 @@ const MenuA = () => {
                             <img src = "/images/mozzarella.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
                             <img src = "/images/tomato.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
                             <img src = "/images/onion.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
-                            <button className = "text-3xl mt-10 font-general-font"><img src = "/images/order.png" className = "w-12"/></button>
+                            <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12"/></button>
                         </div>
                     </div>
                 )
@@ -75,7 +75,7 @@ const MenuA = () => {
         switch(macInfo){
             case false:
                 return(
-                    <div className = "grid grid-in-section_mac bg-mac bg-cover bg-no-repeat bg-center animation ease-in-out duration-500 transform hover:scale-110 hover:z-10 cursor-pointer" onClick = {() => {setMacInfo(!macInfo)}}>
+                    <div className = "grid grid-in-section_mac bg-mac bg-cover bg-no-repeat bg-center animation ease-in-out duration-500 transform hover:scale-110 hover:z-10 cursor-pointers" onClick = {() => {setMacInfo(!macInfo)}}>
                         <div className = "flex flex-col justify-center text-5xl font-artistic pl-5 mt-1 select-none">
                             <h1>Mac</h1>
                         </div>
@@ -83,7 +83,7 @@ const MenuA = () => {
                 );
             default:
                 return(
-                    <div className = "grid grid-in-section_mac bg-black cursor-pointer" onClick = {()=>{setMacInfo(!macInfo)}}>
+                    <div className = "grid grid-in-section_mac bg-black opacity-90 cursor-pointer" onClick = {()=>{setMacInfo(!macInfo)}}>
                         <div className = "grid grid-areas-menuA-horizontal-layout gap-5">
                             <div className = "grid grid-in-symbol text-white">
                                 <div className = "flex items-center justify-evenly select-none">
@@ -97,7 +97,7 @@ const MenuA = () => {
                             </div>
                             <div className = "grid grid-in-info text-white">
                                 <div className = "flex flex-col items-center">
-                                    <button className = "text-3xl font-general-font"><img src="/images/order.png" className = "w-12"/></button>
+                                    <button className = "text-3xl font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src="/images/order.png" className = "w-12"/></button>
                                 </div>
                             </div>
                         </div>
