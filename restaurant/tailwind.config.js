@@ -38,6 +38,8 @@ module.exports = {
         'bolognese' : "url('BG-IMAGES/bolognese.jpg')",
         'lasagna' : "url('BG-IMAGES/lasagna.jpg')",
         'mac' : "url('BG-IMAGES/mac.jpeg')",
+        'creamy' : "url('BG-IMAGES/creamy.jpg')",
+
       },
       gridTemplateAreas: {
         'info-layout': [
@@ -45,18 +47,12 @@ module.exports = {
           'img-section img-section text',
         ],
         'menuA-layout': [
-          'section1 section1 section2',
-          'section1 section1 section2',
-          'section3 section3 section2',
-          'section3 section3 section2',
+          'section_carbonara section_carbonara section_lasagna',
+          'section_carbonara section_carbonara section_lasagna',
+          'section_mac section_mac section_lasagna',
+          'section_mac section_mac section_lasagna',
         ],
-        'menuA-bolognese': [
-          'symbol symbol symbol',
-          'symbol symbol symbol',
-          'symbol symbol symbol',
-          'info info info',
-        ],
-        'menuA-lasagna': [
+        'menuA-horizontal-layout': [
           'symbol symbol symbol',
           'symbol symbol symbol',
           'symbol symbol symbol',
