@@ -12,7 +12,7 @@ function App() {
     <CookiesProvider>
         <Router>
           <Switch>
-            <Route path = "/home" component={Home}/>
+            <Route exact from = "/" to = "/home" component={Home}/>
             <Route path = "/login" component={Login}/>
             <Route path = "/register" component={Register}/>
           </Switch>
