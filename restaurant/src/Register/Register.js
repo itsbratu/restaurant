@@ -52,7 +52,7 @@ const Register = (props)=>{
                 </div>
             </div>
             <div className = "flex items-center justify-center w-60 sm:w-28">
-                <img src='/images/logo_register.jpg' className = "rounded-full"></img>
+                <img src='/images/register-image.jpg' className = "transform scale-75 rounded-full"></img>
             </div>
         </container>    
     );

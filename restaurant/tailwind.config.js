@@ -17,7 +17,8 @@ module.exports = {
       '2xl' : '1.5rem',
       '3xl' : '1.875rem',
       '4xl' : '2.25rem',
-      '5xl' : '3rem'
+      '5xl' : '3rem',
+      'footer-logo' : '4rem',
     },
     fontFamily : {
       'general-font' : ['Roboto Mono'],
@@ -76,7 +77,13 @@ module.exports = {
           'map map map',
           'map map map',
           'map map map',
-          '.  info .',
+          'map map map',
+          'info  info info',
+        ],
+        'footer-layout': [
+          'addresses logo-social phone',
+          'addresses logo-social phone',
+          'addresses logo-social phone',
         ],
       },
       animation: {

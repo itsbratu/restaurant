@@ -49,7 +49,7 @@ const Login = (props) => {
     let routing = useHistory();
     const currentLocation = props.location.pathname;
     if(ROUTES_WITHOUT_HOMEPAGE[currentLocation]) return null;
-    {redirect && routing.push('./home')}
+    {redirect && routing.push('./')}
     
     return(
         <div className="h-screen bg-gradient-to-b from-blue-300 to-blue-500 flex flex-col md:flex-row items-center justify-evenly">
@@ -61,7 +61,7 @@ const Login = (props) => {
                 <div className="flex flex-col items-center justify-evenly h-full w-full">
                     {
                         invalidInput &&
-                        <h1 className = "login-error">Invalid mail or password!</h1>
+                        <h1 className = "text-red-600">Invalid mail or password!</h1>
                     }
                     <button
                         type = "submit"
@@ -72,7 +72,7 @@ const Login = (props) => {
                 </div>
             </div>
             <div className="w-1/3 md:h-64 md:w-64 lg:h-72 lg:w-72 flex items-center justify-center">
-                <img src="/images/logo_login.jpg"  alt = "login" className = "rounded-full"/>
+                <img src="/images/login-image.jpeg"  alt = "login" className = "transform scale-125 rounded-full"/>
             </div>
         </div>
     )
