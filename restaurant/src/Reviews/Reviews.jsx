@@ -42,9 +42,6 @@ const Reviews = () => {
         return displayReviews;
     }
 
-    console.log(reviews.length);
-    console.log(counter);
-
     return (
         <div className = "grid grid-areas-reviews-layout gap-5 h-screen w-11/12 -mt-5">
             {wrapperGetReviews().map((review , index) => {
@@ -56,8 +53,8 @@ const Reviews = () => {
             })}
             <div className = "grid-in-buttons">
                 <div className = "flex justify-around items-center h-full -mt-5">
-                    <button className = "w-14" onClick = {() => {counter!=1 ? setCounter(counter % reviews.length - 1) : setCounter(reviews.length)}}><i class="fas fa-arrow-circle-left fa-3x"></i></button>
-                    <button className = "w-14" onClick = {() => {setCounter((counter % reviews.length) + 1)}}><i class="fas fa-arrow-circle-right fa-3x"></i></button>
+                    <button id = "prev" className = "w-14" onClick = {() => {counter!=1 ? setCounter(counter % reviews.length - 1) : setCounter(reviews.length)}}><i class="fas fa-arrow-circle-left fa-3x"></i></button>
+                    <button id = "next" className = "w-14" onClick = {() => {setCounter((counter % reviews.length) + 1)}}><i class="fas fa-arrow-circle-right fa-3x"></i></button>
                 </div>
             </div>
         </div>

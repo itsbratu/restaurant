@@ -19,6 +19,7 @@ module.exports = {
       '4xl' : '2.25rem',
       '5xl' : '3rem',
       'footer-logo' : '4rem',
+      'tooltip' : '1.75rem', 
     },
     fontFamily : {
       'general-font' : ['Roboto Mono'],

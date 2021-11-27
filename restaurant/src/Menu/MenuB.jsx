@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
+import menuItems from './Constants';
+import Ingredient from './Ingredient';
 
 const MenuB = () => {
 
@@ -24,11 +26,9 @@ const MenuB = () => {
                          onClick = {() => {setCreamyInfo(!creamyInfo)}}
                     >
                         <div className = "flex flex-col justify-evenly items-center">
-                            <img src = "/images/penne.png " className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
-                            <img src = "/images/cream.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
-                            <img src = "/images/spinach.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
-                            <img src = "/images/parmesan.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
-                            <img src = "/images/olive-oil.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
+                            {menuItems.creamy.map((currIngredient) => {
+                                return(<Ingredient name = {currIngredient} position = {"top"}/>);
+                            })}
                             <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12"/></button>
                         </div>
                     </div>
@@ -53,11 +53,9 @@ const MenuB = () => {
                     <div className = "grid grid-in-section_carbonara bg-yellow-400 opacity-90 cursor-pointer" 
                          onClick = {() => {setCarbonaraInfo(!carbonaraInfo)}}>
                         <div className = "flex flex-col items-center justify-evenly">
-                            <img src = "/images/spaghetti.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
-                            <img src = "/images/bacon.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
-                            <img src = "/images/parmesan.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
-                            <img src = "/images/oregano.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
-                            <img src = "/images/olive-oil.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
+                            {menuItems.carbonara.map((currIngredient) => {
+                                return(<Ingredient name = {currIngredient} position = {"top"}/>);
+                            })}
                             <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12"/></button>
                         </div>
                     </div>
@@ -81,12 +79,9 @@ const MenuB = () => {
                     <div className = "grid grid-in-section_sea_pasta bg-yellow-400 opacity-80 cursor-pointer" 
                     onClick = {() => {setSeaPastaInfo(!seaPastaInfo)}}>
                         <div className = "flex flex-col items-center justify-evenly">
-                            <img src = "/images/spaghetti.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
-                            <img src = "/images/shrimp.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
-                            <img src = "/images/octopus.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
-                            <img src = "/images/tomato.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
-                            <img src = "/images/oregano.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
-                            <img src = "/images/olive-oil.png" className = "animation ease-in-out duration-500 transform hover:scale-125 w-12"/>
+                            {menuItems.seaPasta.map((currIngredient) => {
+                                return(<Ingredient name = {currIngredient} position = {"top"}/>);
+                            })}
                             <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12"/></button>
                         </div>
                     </div>
