@@ -26,7 +26,7 @@ const MenuB = () => {
                     <Tippy 
                         content = 
                         {<div className = "flex justify-items-start items-center">
-                            <h1 className = "text-price text-green-500 font-artistic"> <i class="fas fa-dollar-sign">{menuItems.creamy.price}</i></h1>
+                            <h1 className = "text-2xl text-green-500 font-artistic"> <i class="fas fa-dollar-sign">{menuItems.creamy.price}</i></h1>
                         </div>} 
                         placement = "bottom-start" 
                         className = "bg-black rounded-full p-5" 
@@ -61,7 +61,7 @@ const MenuB = () => {
                     <Tippy 
                         content = 
                         {<div className = "flex justify-items-start items-center">
-                            <h1 className = "text-price text-green-500 font-artistic"> <i class="fas fa-dollar-sign">{menuItems.carbonara.price}</i></h1>
+                            <h1 className = "text-2xl text-green-500 font-artistic"> <i class="fas fa-dollar-sign">{menuItems.carbonara.price}</i></h1>
                         </div>} 
                         placement = "bottom-start" 
                         className = "bg-black rounded-full p-5" 
@@ -96,7 +96,7 @@ const MenuB = () => {
                     <Tippy 
                         content = 
                         {<div className = "flex justify-items-start items-center">
-                            <h1 className = "text-price text-green-500 font-artistic"> <i class="fas fa-dollar-sign">{menuItems.seaPasta.price}</i></h1>
+                            <h1 className = "text-2xl text-green-500 font-artistic"> <i class="fas fa-dollar-sign">{menuItems.seaPasta.price}</i></h1>
                         </div>} 
                         placement = "bottom-start" 
                         className = "bg-black rounded-full p-5" 

@@ -32,6 +32,9 @@ const Reviews = () => {
         }
     }
 
+    console.log(reviews.length);
+    console.log(counter);
+
     function wrapperGetReviews(){
         var displayReviews = [];
         var reviewsIndex = getReviewsID(counter);
@@ -53,7 +56,7 @@ const Reviews = () => {
             })}
             <div className = "grid-in-buttons">
                 <div className = "flex justify-around items-center h-full -mt-5">
-                    <button id = "prev" className = "w-14" onClick = {() => {counter!=1 ? setCounter(counter % reviews.length - 1) : setCounter(reviews.length)}}><i class="fas fa-arrow-circle-left fa-3x"></i></button>
+                    <button id = "prev" className = "w-14" onClick = {() => {counter == 1 ? setCounter(reviews.length) : setCounter(counter-1)}}><i class="fas fa-arrow-circle-left fa-3x"></i></button>
                     <button id = "next" className = "w-14" onClick = {() => {setCounter((counter % reviews.length) + 1)}}><i class="fas fa-arrow-circle-right fa-3x"></i></button>
                 </div>
             </div>

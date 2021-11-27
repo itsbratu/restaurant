@@ -5,7 +5,7 @@ const ReviewCard = (props) => {
     const {id , info , name , picture , rating} = props.review;
 
     return(
-        <div className = {`grid grid-in-review${props.id} -mt-20 ${props.id == 1 ? 'opacity-100 transform scale-100' : 'opacity-60 transform scale-50'}`}>
+        <div className = {`grid grid-in-review${props.id} -mt-20 ${props.id == 1 ? 'opacity-100 transform scale-100' : 'opacity-60 transform scale-50'} select-none`}>
             <div className = "flex flex-col justify-evenly text-center">
                 <div className = "flex justify-center w-full h-1/3">
                     <img src = {`${picture}`} className = "rounded-full"/>
