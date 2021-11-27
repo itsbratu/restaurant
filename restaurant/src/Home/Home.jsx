@@ -12,8 +12,11 @@ import MenuB from 'Menu/MenuB'
 import EmptySection from 'Menu/EmptySection'
 import Reviews from 'Reviews/Reviews'
 import Contact from 'Contact/Contact'
+import Tippy from '@tippyjs/react'
 
 const Home = (props)=>{
+
+    const [showSideBar , setShowSideBar] = useState(false);
 
     const clearCookies = () =>{
         eraseCookie("email");
@@ -30,23 +33,59 @@ const Home = (props)=>{
     const currentLocation = props.location.pathname;
     if(ROUTES_WITHOUT_HOMEPAGE[currentLocation]) return null;
 
+    function swtichRenderSidebar(showSideBar){
+        switch(showSideBar){
+            case true:
+                return(
+                    <Tippy 
+                    content = {<div className = "flex items-center justify-end"><button onClick = {() => {setShowSideBar(!showSideBar)}}><i class="fas fa-arrow-left fa-2x"></i></button></div>} 
+                    interactive = "true" 
+                    placement = "right" 
+                    duration = {0}>
+                        <div className = "fixed top-1/4 w-1/12 h-3/5 flex flex-col justify-evenly pl-5 py-3 z-50 bg-black opacity-75 rounded-r-full">
+                            <a href = "#home" className = "cursor-pointer w-1/2"><img src = "images/home.png"/></a>
+                            <a href = "#info" className = "cursor-pointer w-1/2"><img src = "images/information.png"/></a>
+                            <a href = "#menu" className = "cursor-pointer w-1/2"><img src = "images/menu.png"/></a>
+                            <a href = "#rating" className = "cursor-pointer w-1/2"><img src = "images/feedback.png"/></a>
+                            <a className = "cursor-pointer"><img src = "images/profile.png" className = "w-1/2"/></a>
+                        </div>
+                    </Tippy>
+                );
+            default:
+                return(
+                    <div className = "fixed top-1/4 w-1/12 h-3/5 flex justify-start pl-5 rounded-r-full">
+                        <button onClick = {() => {setShowSideBar(!showSideBar)}}><i class="fas fa-arrow-right fa-3x"></i></button>
+                    </div>
+                )
+        }
+    }
+
     return( 
-        <div className = "grid gap-5 ml-10 my-5 p-0 box-border max-w-full overflow-hidden">
-            <NavBar logged = {loggedUser} clearCookies = {clearCookies}/>
-            <RegisterSection routing = {routing} logged = {loggedUser}/>
-            <Line id = {"info"}/>
-            <Info/>
-            <Line id = {"menu"}/>
-            <EmptySection/>
-            <MenuA/>
-            <EmptySection/>
-            <MenuB/>
-            <EmptySection/>
-            <Line id = {"reviews"}/>
-            <Reviews/>
-            <Line id = {"contact"}/>
-            <Contact/>
+        <div id = "home">
+            {loggedUser!=null && swtichRenderSidebar(showSideBar)}
+            <div className = "grid gap-5 ml-20 my-5 p-0 box-border max-w-full">
+                <NavBar logged = {loggedUser} clearCookies = {clearCookies}/>
+                <RegisterSection routing = {routing} logged = {loggedUser}/>
+                {loggedUser!=null && 
+                <>
+                    <Line/>
+                    <Info/>
+                    <Line/>
+                    <EmptySection/>
+                    <MenuA/>
+                    <EmptySection/>
+                    <MenuB/>
+                    <EmptySection/>
+                    <Line id = {"reviews"}/>
+                    <Reviews/>
+                    <Line id = {"contact"}/>
+                    <Contact/>
+                </>}
+
+            </div>
+            
         </div>
+
     );
 }
 

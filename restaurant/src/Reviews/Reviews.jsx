@@ -46,7 +46,7 @@ const Reviews = () => {
     }
 
     return (
-        <div className = "grid grid-areas-reviews-layout gap-5 h-screen w-11/12 -mt-5">
+        <div id = "rating" className = "grid grid-areas-reviews-layout gap-5 h-screen w-11/12 -mt-5">
             {wrapperGetReviews().map((review , index) => {
                 return(
                     <>

@@ -126,7 +126,7 @@ const MenuA = () => {
     }
 
     return(
-        <div className = "grid grid-areas-menuA-layout gap-5 h-screen w-5/6 ml-10">
+        <div id = "menu" className = "grid grid-areas-menuA-layout gap-5 h-screen w-5/6 ml-10">
             {switchRenderBolognese(bologneseInfo)}
             {switchRenderLasagna(lasagnaInfo)}
             {switchRenderMac(macInfo)}
