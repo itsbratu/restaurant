@@ -19,7 +19,8 @@ module.exports = {
       '4xl' : '2.25rem',
       '5xl' : '3rem',
       'footer-logo' : '4rem',
-      'tooltip' : '1.75rem', 
+      'tooltip' : '1.75rem',
+      'price' : '2.5rem',
     },
     fontFamily : {
       'general-font' : ['Roboto Mono'],
@@ -67,6 +68,9 @@ module.exports = {
           '. section_creamy section_creamy section_carbonara section_carbonara section_sea_pasta section_sea_pasta ',
           '. section_creamy section_creamy section_carbonara section_carbonara section_sea_pasta section_sea_pasta ',
           '. section_creamy section_creamy section_carbonara section_carbonara section_sea_pasta section_sea_pasta ',
+        ],
+        'empty-layout': [
+          'empty empty empty',
         ],
         'reviews-layout': [
           'review0 review1 review2',

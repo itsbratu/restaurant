@@ -9,6 +9,7 @@ import RegisterSection from 'HomeSubComp/RegisterSection'
 import Info from 'Info/Info'
 import MenuA from 'Menu/MenuA'
 import MenuB from 'Menu/MenuB'
+import EmptySection from 'Menu/EmptySection'
 import Reviews from 'Reviews/Reviews'
 import Contact from 'Contact/Contact'
 
@@ -36,8 +37,11 @@ const Home = (props)=>{
             <Line id = {"info"}/>
             <Info/>
             <Line id = {"menu"}/>
+            <EmptySection/>
             <MenuA/>
+            <EmptySection/>
             <MenuB/>
+            <EmptySection/>
             <Line id = {"reviews"}/>
             <Reviews/>
             <Line id = {"contact"}/>

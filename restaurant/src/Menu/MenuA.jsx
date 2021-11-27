@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 import menuItems from './Constants';
 import Ingredient from './Ingredient';
+import Tippy from '@tippyjs/react';
 
 const MenuA = () => {
 
@@ -13,32 +14,40 @@ const MenuA = () => {
         switch(bologneseInfo){
             case false:
                 return(
-                    <div className = "grid grid-in-section_bolognese bg-bolognese bg-cover bg-center animation ease-in-out duration-500 transform hover:scale-110 hover:z-10 cursor-pointer" onClick = {()=>{setBologneseInfo(!bologneseInfo)}}>
-                        <div className = "grid grid-cols-2 gap-5">
-                            <div className = "flex items-end">
-                                <h1 className = "text-5xl font-artistic py-5 px-5 select-none">Bolognese</h1>
-                            </div>
+                    <div className = "grid grid-in-section_bolognese bg-bolognese bg-cover bg-center animation ease-in-out duration-500 transform hover:scale-110 hover:z-10 cursor-pointer"
+                    onClick = {() => {setBologneseInfo(!bologneseInfo)}}>
+                        <div className = "flex items-end">
+                            <h1 className = "text-5xl font-artistic py-5 px-5 select-none">Bolognese</h1>
                         </div>
                     </div>
                 );
             default:
                 return(
-                    <div className = "grid grid-in-section_bolognese bg-black opacity-75 cursor-pointer" onClick = {()=>{setBologneseInfo(!bologneseInfo)}}>
-                        <div className = "grid grid-areas-menuA-horizontal-layout gap-5">
-                            <div className = "grid grid-in-symbol text-white">
-                                <div className = "flex items-center justify-evenly select-none">
-                                    {menuItems.bolognese.map((currIngredient) => {
-                                        return(<Ingredient name = {currIngredient} position = {"top"}/>);
-                                    })}
+                    <Tippy 
+                        content = 
+                        {<div className = "flex justify-items-start items-center">
+                            <h1 className = "text-price text-green-500 font-artistic"> <i class="fas fa-dollar-sign">{menuItems.bolognese.price}</i></h1>
+                        </div>} 
+                        placement = "top-start" 
+                        className = "bg-black rounded-full p-5" 
+                        duration = {0}>
+                        <div className = "grid grid-in-section_bolognese bg-black opacity-75 cursor-pointer" onClick = {()=>{setBologneseInfo(!bologneseInfo)}}>
+                            <div className = "grid grid-areas-menuA-horizontal-layout gap-5">
+                                <div className = "grid grid-in-symbol text-white">
+                                    <div className = "flex items-center justify-evenly select-none">
+                                        {menuItems.bolognese.ingredients.map((currIngredient) => {
+                                            return(<Ingredient name = {currIngredient} position = {"top"}/>);
+                                        })}
+                                    </div>
                                 </div>
-                            </div>
-                            <div className = "grid grid-in-info text-white">
-                                <div className = "flex flex-col items-center">
-                                    <button className = "text-3xl font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src="/images/order.png" className = "w-12"/></button>
+                                <div className = "grid grid-in-info text-white">
+                                    <div className = "flex flex-col items-center">
+                                        <button className = "text-3xl font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src="/images/order.png" className = "w-12"/></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Tippy>
                 );
         }
     }
@@ -53,15 +62,24 @@ const MenuA = () => {
                 )
             default:
                 return(
-                    <div className = "grid grid-in-section_lasagna bg-black opacity-80 cursor-pointer" onClick = {()=>{setLasagnaInfo(!lasagnaInfo)}}>
-                        <div className = "flex flex-col items-center justify-evenly my-10 text-white">
-                        {menuItems.lasagna.map((currIngredient) => {
-                                return(<Ingredient name = {currIngredient} position = {"left"}/>);
-                        })}
-                        <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12"/></button>
+                    <Tippy 
+                        content = 
+                        {<div className = "flex justify-items-start items-center">
+                            <h1 className = "text-price text-green-500 font-artistic"> <i class="fas fa-dollar-sign">{menuItems.lasagna.price}</i></h1>
+                        </div>} 
+                        placement = "top-start" 
+                        className = "bg-black rounded-full p-5" 
+                        duration = {0}>
+                        <div className = "grid grid-in-section_lasagna bg-black opacity-80 cursor-pointer" onClick = {()=>{setLasagnaInfo(!lasagnaInfo)}}>
+                            <div className = "flex flex-col items-center justify-evenly my-10 text-white">
+                                {menuItems.lasagna.ingredients.map((currIngredient) => {
+                                    return(<Ingredient name = {currIngredient} position = {"top"}/>);
+                                })}
+                            <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12"/></button>
+                            </div>
                         </div>
-                    </div>
-                )
+                    </Tippy>
+                );
         }
     }
 
@@ -77,22 +95,31 @@ const MenuA = () => {
                 );
             default:
                 return(
-                    <div className = "grid grid-in-section_mac bg-black opacity-90 cursor-pointer" onClick = {()=>{setMacInfo(!macInfo)}}>
-                        <div className = "grid grid-areas-menuA-horizontal-layout gap-5">
-                            <div className = "grid grid-in-symbol text-white">
-                                <div className = "flex items-center justify-evenly select-none">
-                                    {menuItems.mac.map((currIngredient) => {
-                                        return(<Ingredient name = {currIngredient} position = {"top"}/>);
-                                    })}
+                    <Tippy 
+                        content = 
+                        {<div className = "flex justify-items-start items-center">
+                            <h1 className = "text-price text-green-500 font-artistic"> <i class="fas fa-dollar-sign">{menuItems.mac.price}</i></h1>
+                        </div>} 
+                        placement = "bottom-start" 
+                        className = "bg-black rounded-full p-5" 
+                        duration = {0}>
+                        <div className = "grid grid-in-section_mac bg-black opacity-90 cursor-pointer" onClick = {()=>{setMacInfo(!macInfo)}}>
+                            <div className = "grid grid-areas-menuA-horizontal-layout gap-5">
+                                <div className = "grid grid-in-symbol text-white">
+                                    <div className = "flex items-center justify-evenly select-none">
+                                        {menuItems.mac.ingredients.map((currIngredient) => {
+                                            return(<Ingredient name = {currIngredient} position = {"top"}/>);
+                                        })}
+                                    </div>
                                 </div>
-                            </div>
-                            <div className = "grid grid-in-info text-white">
-                                <div className = "flex flex-col items-center">
-                                    <button className = "text-3xl font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src="/images/order.png" className = "w-12"/></button>
+                                <div className = "grid grid-in-info text-white">
+                                    <div className = "flex flex-col items-center">
+                                        <button className = "text-3xl font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src="/images/order.png" className = "w-12"/></button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Tippy>
                 );         
 
         }
