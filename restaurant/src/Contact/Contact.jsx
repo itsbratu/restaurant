@@ -23,7 +23,7 @@ const REACT_APP_MY_GOOGLE_MAPS_API = process.env.REACT_APP_MY_GOOGLE_MAPS_API;
 
 const Contact = () => {
     return (
-        <div className = "grid grid-areas-contact-layout h-screen w-11/12">
+        <div id = "contact" className = "grid grid-areas-contact-layout h-screen w-11/12">
             <div className = "grid grid-in-map bg-black">
             <WrappedMap 
                         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${REACT_APP_MY_GOOGLE_MAPS_API}`}

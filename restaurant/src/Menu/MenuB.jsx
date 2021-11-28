@@ -1,6 +1,5 @@
-import Tippy from '@tippyjs/react';
 import React from 'react'
-import { useState } from 'react';
+import { useState} from 'react';
 import { getCookie } from 'cookies'
 import menuItems from './Constants';
 import Ingredient from './Ingredient';
@@ -25,24 +24,14 @@ const MenuB = () => {
                 );
             default:
                 return(
-                    <Tippy 
-                        content = 
-                        {<div className = "flex justify-items-start items-center">
-                            <h1 className = "text-2xl text-green-500 font-artistic"> <i class="fas fa-dollar-sign">{menuItems.creamy.price}</i></h1>
-                        </div>} 
-                        placement = "bottom-start" 
-                        className = "bg-black rounded-full p-5" 
-                        duration = {0}>
-                        <div className = "grid grid-in-section_creamy bg-yellow-400 cursor-pointer" onClick = {() => {setCreamyInfo(!creamyInfo)}}>
-                            <div className = "flex flex-col justify-evenly items-center">
-                                {menuItems.creamy.ingredients.map((currIngredient) => {
-                                    return(<Ingredient name = {currIngredient} position = {"top"}/>);
-                                })}
-                                <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12" onClick = {() => {addToCart(getCookie("email") , menuItems.creamy.id)}}/></button>
-                            </div>
+                    <div className = "grid grid-in-section_creamy bg-yellow-400 cursor-pointer" onClick = {() => {setCreamyInfo(!creamyInfo)}}>
+                        <div className = "flex flex-col justify-evenly items-center">
+                            {menuItems.creamy.ingredients.map((currIngredient) => {
+                                return(<Ingredient name = {currIngredient} position = {"top"}/>);
+                            })}
+                            <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12" onClick = {() => {addToCart(getCookie("email") , menuItems.creamy.id)}}/></button>
                         </div>
-                    </Tippy>
-
+                    </div>
                 );
         }
     }
@@ -60,24 +49,15 @@ const MenuB = () => {
                 )
             default:
                 return(
-                    <Tippy 
-                        content = 
-                        {<div className = "flex justify-items-start items-center">
-                            <h1 className = "text-2xl text-green-500 font-artistic"> <i class="fas fa-dollar-sign">{menuItems.carbonara.price}</i></h1>
-                        </div>} 
-                        placement = "bottom-start" 
-                        className = "bg-black rounded-full p-5" 
-                        duration = {0}>
-                            <div className = "grid grid-in-section_carbonara bg-yellow-400 opacity-90 cursor-pointer" 
-                            onClick = {() => {setCarbonaraInfo(!carbonaraInfo)}}>
-                                <div className = "flex flex-col items-center justify-evenly">
-                                    {menuItems.carbonara.ingredients.map((currIngredient) => {
-                                        return(<Ingredient name = {currIngredient} position = {"top"}/>);
-                                    })}
-                                    <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12" onClick = {() => {addToCart(getCookie("email") , menuItems.carbonara.id)}}/></button>
-                                </div>
-                            </div>
-                    </Tippy>
+                    <div className = "grid grid-in-section_carbonara bg-yellow-400 opacity-90 cursor-pointer" 
+                    onClick = {() => {setCarbonaraInfo(!carbonaraInfo)}}>
+                        <div className = "flex flex-col items-center justify-evenly">
+                            {menuItems.carbonara.ingredients.map((currIngredient) => {
+                                return(<Ingredient name = {currIngredient} position = {"top"}/>);
+                            })}
+                            <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12" onClick = {() => {addToCart(getCookie("email") , menuItems.carbonara.id)}}/></button>
+                        </div>
+                    </div>
             )   
         }
     }
@@ -95,27 +75,16 @@ const MenuB = () => {
                 )
             default:
                 return(
-                    <Tippy 
-                        content = 
-                        {<div className = "flex justify-items-start items-center">
-                            <h1 className = "text-2xl text-green-500 font-artistic"> <i class="fas fa-dollar-sign">{menuItems.seaPasta.price}</i></h1>
-                        </div>} 
-                        placement = "bottom-start" 
-                        className = "bg-black rounded-full p-5" 
-                        duration = {0}>
-                            <div className = "grid grid-in-section_sea_pasta bg-yellow-400 opacity-80 cursor-pointer" 
-                            onClick = {() => {setSeaPastaInfo(!seaPastaInfo)}}>
-                                <div className = "flex flex-col items-center justify-evenly">
-                                    {menuItems.seaPasta.ingredients.map((currIngredient) => {
-                                        return(<Ingredient name = {currIngredient} position = {"top"}/>);
-                                    })}
-                                    <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12" onClick = {() => {addToCart(getCookie("email") , menuItems.seaPasta.id)}}/></button>
-                                </div>
-                            </div>
-                    </Tippy>
-
+                    <div className = "grid grid-in-section_sea_pasta bg-yellow-400 opacity-80 cursor-pointer" 
+                    onClick = {() => {setSeaPastaInfo(!seaPastaInfo)}}>
+                        <div className = "flex flex-col items-center justify-evenly">
+                            {menuItems.seaPasta.ingredients.map((currIngredient) => {
+                                return(<Ingredient name = {currIngredient} position = {"top"}/>);
+                            })}
+                            <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12" onClick = {() => {addToCart(getCookie("email") , menuItems.seaPasta.id)}}/></button>
+                        </div>
+                    </div>
                 )
-
         }
     }
 

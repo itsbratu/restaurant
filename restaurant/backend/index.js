@@ -177,6 +177,18 @@ app.get("/all_reviews" , (_ , res) => {
     )
 })
 
+app.get("/menu" , (_ , res) => {
+    users_db.query(
+        "SELECT * FROM menu" , (err , result) => {
+            if(err){
+                console.log(err);
+            }else{
+                res.send(result);
+            }
+        }
+    )
+})
+
 app.listen(4000 , () =>{
     console.log("Server running fine!")
 })

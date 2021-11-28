@@ -42,12 +42,12 @@ const Home = (props)=>{
                     interactive = "true" 
                     placement = "right" 
                     duration = {0}>
-                        <div className = "fixed top-1/4 w-1/12 h-3/5 flex flex-col justify-evenly pl-5 py-3 z-50 bg-black opacity-75 rounded-r-full">
-                            <a href = "#home" className = "cursor-pointer w-1/2"><img src = "images/home.png"/></a>
-                            <a href = "#info" className = "cursor-pointer w-1/2"><img src = "images/information.png"/></a>
-                            <a href = "#menu" className = "cursor-pointer w-1/2"><img src = "images/menu.png"/></a>
-                            <a href = "#rating" className = "cursor-pointer w-1/2"><img src = "images/feedback.png"/></a>
-                            <a className = "cursor-pointer"><img src = "images/profile.png" className = "w-1/2"/></a>
+                        <div className = "fixed top-1/4 w-1/12 h-3/5 flex flex-col justify-evenly pl-5 py-3 z-50 bg-gray-100 rounded-r-full">
+                            <a href = "#home" className = "cursor-pointer w-1/2 animation ease-in-out duration-500 transform hover:scale-125"><img src = "images/home.png"/></a>
+                            <a href = "#info" className = "cursor-pointer w-1/2 animation ease-in-out duration-500 transform hover:scale-125"><img src = "images/info.png"/></a>
+                            <a href = "#menu" className = "cursor-pointer w-1/2 animation ease-in-out duration-500 transform hover:scale-125"><img src = "images/menu.png"/></a>
+                            <a href = "#rating" className = "cursor-pointer w-1/2 animation ease-in-out duration-500 transform hover:scale-125"><img src = "images/rating.png"/></a>
+                            <a href = "#contact" className = "cursor-pointer w-1/2 animation ease-in-out duration-500 transform hover:scale-125"><img src = "images/contact.png"/></a>
                         </div>
                     </Tippy>
                 );
@@ -76,9 +76,9 @@ const Home = (props)=>{
                     <EmptySection/>
                     <MenuB/>
                     <EmptySection/>
-                    <Line id = {"reviews"}/>
+                    <Line/>
                     <Reviews/>
-                    <Line id = {"contact"}/>
+                    <Line/>
                     <Contact/>
                 </>}
 
