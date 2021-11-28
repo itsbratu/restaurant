@@ -44,16 +44,17 @@ const Home = (props)=>{
                     duration = {0}>
                         <div className = "fixed top-1/4 w-1/12 h-3/5 flex flex-col justify-evenly pl-5 py-3 z-50 bg-gray-100 rounded-r-full">
                             <a href = "#home" className = "cursor-pointer w-1/2 animation ease-in-out duration-500 transform hover:scale-125"><img src = "images/home.png"/></a>
-                            <a href = "#info" className = "cursor-pointer w-1/2 animation ease-in-out duration-500 transform hover:scale-125"><img src = "images/info.png"/></a>
                             <a href = "#menu" className = "cursor-pointer w-1/2 animation ease-in-out duration-500 transform hover:scale-125"><img src = "images/menu.png"/></a>
                             <a href = "#rating" className = "cursor-pointer w-1/2 animation ease-in-out duration-500 transform hover:scale-125"><img src = "images/rating.png"/></a>
+                            <img className = "w-1/2 animation ease-in-out duration-500 transform hover:scale-125 cursor-pointer" onClick = {()=>{routing.push('./cart')}} src = "images/cart.png"/>
                             <a href = "#contact" className = "cursor-pointer w-1/2 animation ease-in-out duration-500 transform hover:scale-125"><img src = "images/contact.png"/></a>
+                            <a className = "cursor-pointer w-1/2 animation ease-in-out duration-500 transform hover:scale-125"><img src = "images/logout.png" onClick = {() => {clearCookies()}}/></a>
                         </div>
                     </Tippy>
                 );
             default:
                 return(
-                    <div className = "fixed top-1/4 w-1/12 h-3/5 flex justify-start pl-5 rounded-r-full">
+                    <div className = "fixed top-1/4 w-1/12 h-3/5 flex justify-start pl-5 rounded-r-full z-50">
                         <button onClick = {() => {setShowSideBar(!showSideBar)}}><i class="fas fa-arrow-right fa-3x"></i></button>
                     </div>
                 )
@@ -63,7 +64,7 @@ const Home = (props)=>{
     return( 
         <div id = "home">
             {loggedUser!=null && swtichRenderSidebar(showSideBar)}
-            <div className = "grid gap-5 ml-20 my-5 p-0 box-border max-w-full">
+            <div className = "grid gap-5 ml-10 my-5 p-0 max-w-full">
                 <NavBar logged = {loggedUser} clearCookies = {clearCookies}/>
                 <RegisterSection routing = {routing} logged = {loggedUser}/>
                 {loggedUser!=null && 

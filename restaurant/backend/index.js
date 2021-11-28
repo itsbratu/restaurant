@@ -115,6 +115,23 @@ app.post("/addUserItem" , async (req , res) => {
     )
 })
 
+
+app.post("/myItems" , async (req , res) => {
+    const currUser = req.body.user;
+    console.log(currUser);
+    users_db.query(
+        "SELECT * FROM cart WHERE (user = ?)",
+        [currUser],
+        (err , resultItems) => {
+            if(err){
+                console.log(err);
+            }else{
+                res.send(resultItems);
+            }
+        }
+    )
+})
+
 app.post("/login" , async (req , res) =>{
     const user_mail = req.body.mail;
     const user_pass = req.body.pass;
@@ -168,18 +185,6 @@ app.get("/all" , (_ , res) => {
 app.get("/all_reviews" , (_ , res) => {
     users_db.query(
         "SELECT * FROM reviews" , (err , result) => {
-            if(err){
-                console.log(err);
-            }else{
-                res.send(result);
-            }
-        }
-    )
-})
-
-app.get("/menu" , (_ , res) => {
-    users_db.query(
-        "SELECT * FROM menu" , (err , result) => {
             if(err){
                 console.log(err);
             }else{

@@ -51,5 +51,6 @@ export const REGEX_HOLDER = {
 
 export const ROUTES_WITHOUT_HOMEPAGE = {
     '/login' : false,
-    '/register' : false
+    '/register' : false,
+    '/cart' : false,
 }
