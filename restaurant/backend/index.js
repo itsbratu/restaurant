@@ -81,6 +81,40 @@ app.post("/register" , async (req , res)=>{
     );
 });
 
+app.post("/addUserItem" , async (req , res) => {
+    const addEntry = req.body.entry;
+    const {idItem , user , quantity} = addEntry;
+
+    users_db.query(
+        "SELECT * FROM cart WHERE idItem = ? AND user = ?",
+        [idItem , user],
+        (errExists , row) => {
+            if(errExists){console.log(errExists);}
+            else{
+                if(row && row.length){
+                    users_db.query(
+                        "UPDATE cart SET quantity = ? WHERE (user = ? AND idItem = ?)",
+                        [row[0].quantity + 1 , user , idItem],
+                        (errUpdate , _) => {
+                            if(errUpdate){console.log(errUpdate)}
+                        }
+                    )
+                    res.send(`Quantity for item ${idItem} and user ${user} UPDATED!`);
+                }else{
+                    users_db.query(
+                        "INSERT INTO cart (user , idItem , quantity) VALUES (?,?,?)",
+                        [user , idItem , quantity],
+                        (errInsert , _) => {
+                            if(errInsert){console.log(errInsert)}
+                        }
+                    )
+                    res.send(`Item ${idItem} for user ${user} ADDED!`);
+                }
+            }
+        }
+    )
+})
+
 app.post("/login" , async (req , res) =>{
     const user_mail = req.body.mail;
     const user_pass = req.body.pass;

@@ -1,14 +1,16 @@
 import React from 'react'
+import addToCart from './logic';
 import { useState } from 'react';
+import { getCookie } from 'cookies'
 import menuItems from './Constants';
 import Ingredient from './Ingredient';
 import Tippy from '@tippyjs/react';
-
 const MenuA = () => {
 
     const [bologneseInfo , setBologneseInfo] = useState(false);
     const [lasagnaInfo , setLasagnaInfo] = useState(false);
     const [macInfo , setMacInfo] = useState(false);
+
 
     function switchRenderBolognese(bologneseInfo){
         switch(bologneseInfo){
@@ -42,7 +44,7 @@ const MenuA = () => {
                                 </div>
                                 <div className = "grid grid-in-info text-white">
                                     <div className = "flex flex-col items-center">
-                                        <button className = "text-3xl font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src="/images/order.png" className = "w-12"/></button>
+                                        <button className = "text-3xl font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src="/images/order.png" className = "w-12" onClick = {() => {addToCart(getCookie("email") , menuItems.bolognese.id)}}/></button>
                                     </div>
                                 </div>
                             </div>
@@ -75,7 +77,7 @@ const MenuA = () => {
                                 {menuItems.lasagna.ingredients.map((currIngredient) => {
                                     return(<Ingredient name = {currIngredient} position = {"top"}/>);
                                 })}
-                            <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12"/></button>
+                            <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12" onClick = {() => {addToCart(getCookie("email") , menuItems.lasagna.id)}}/></button>
                             </div>
                         </div>
                     </Tippy>
@@ -114,7 +116,7 @@ const MenuA = () => {
                                 </div>
                                 <div className = "grid grid-in-info text-white">
                                     <div className = "flex flex-col items-center">
-                                        <button className = "text-3xl font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src="/images/order.png" className = "w-12"/></button>
+                                        <button className = "text-3xl font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src="/images/order.png" className = "w-12" onClick = {() => {addToCart(getCookie("email") , menuItems.mac.id)}}/></button>
                                     </div>
                                 </div>
                             </div>
@@ -126,6 +128,7 @@ const MenuA = () => {
     }
 
     return(
+
         <div id = "menu" className = "grid grid-areas-menuA-layout gap-5 h-screen w-5/6 ml-10">
             {switchRenderBolognese(bologneseInfo)}
             {switchRenderLasagna(lasagnaInfo)}

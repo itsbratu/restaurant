@@ -1,8 +1,10 @@
 import Tippy from '@tippyjs/react';
 import React from 'react'
 import { useState } from 'react';
+import { getCookie } from 'cookies'
 import menuItems from './Constants';
 import Ingredient from './Ingredient';
+import addToCart from './logic';
 
 const MenuB = () => {
 
@@ -36,7 +38,7 @@ const MenuB = () => {
                                 {menuItems.creamy.ingredients.map((currIngredient) => {
                                     return(<Ingredient name = {currIngredient} position = {"top"}/>);
                                 })}
-                                <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12"/></button>
+                                <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12" onClick = {() => {addToCart(getCookie("email") , menuItems.creamy.id)}}/></button>
                             </div>
                         </div>
                     </Tippy>
@@ -72,7 +74,7 @@ const MenuB = () => {
                                     {menuItems.carbonara.ingredients.map((currIngredient) => {
                                         return(<Ingredient name = {currIngredient} position = {"top"}/>);
                                     })}
-                                    <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12"/></button>
+                                    <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12" onClick = {() => {addToCart(getCookie("email") , menuItems.carbonara.id)}}/></button>
                                 </div>
                             </div>
                     </Tippy>
@@ -107,7 +109,7 @@ const MenuB = () => {
                                     {menuItems.seaPasta.ingredients.map((currIngredient) => {
                                         return(<Ingredient name = {currIngredient} position = {"top"}/>);
                                     })}
-                                    <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12"/></button>
+                                    <button className = "text-3xl mt-10 font-general-font animation ease-in-out duration-1000 transform hover:scale-150"><img src = "/images/order.png" className = "w-12" onClick = {() => {addToCart(getCookie("email") , menuItems.seaPasta.id)}}/></button>
                                 </div>
                             </div>
                     </Tippy>
