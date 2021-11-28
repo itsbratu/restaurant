@@ -19,6 +19,7 @@ module.exports = {
       '4xl' : '2.25rem',
       '5xl' : '3rem',
       'footer-logo' : '4rem',
+      'home-logo' : '5rem',
       'tooltip' : '1.75rem',
       'price' : '2.5rem',
     },
