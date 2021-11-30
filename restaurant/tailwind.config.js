@@ -96,12 +96,12 @@ module.exports = {
           'cart cart cart',
           'cart cart cart',
           'cart cart cart',
-          'map map map',
-          'map map map',
-          'map map map',
-          'user user user',
-          'user user user',
-        ]
+          'map map contact-user',
+          'map map contact-user',
+          'map map contact-user',
+          'order order order',
+          'order order order',
+        ],
       },
       animation: {
         fadeIn: "fadeIn 1s ease-in forwards"

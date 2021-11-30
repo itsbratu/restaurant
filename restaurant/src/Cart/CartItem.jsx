@@ -13,11 +13,11 @@ const CartItem = (props) =>{
         switch(updateType){
             case addToCart:
                 addToCart(getCookie("email") , idItem);
+                handleDataChange();
                 break;
             case deleteFromCart:
                 deleteFromCart(getCookie("email") , idItem , deleteQuantity);
-                break;
-            handleDataChange();
+                handleDataChange();
         }
     }
 

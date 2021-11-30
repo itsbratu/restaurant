@@ -1,19 +1,18 @@
 import React from 'react'
 import { GoogleMap , withScriptjs , withGoogleMap , Marker} from 'react-google-maps';
-import darkTheme from './Footer.MapStyling';
+import darkTheme from 'Utils/mapStyling.js'
 
 require('dotenv').config()
 
 function Map(){
     return(
         <GoogleMap defaultZoom = {13} 
-        defaultCenter = {{lat : 46.770920 , lng : 23.589920}}
-        options = {{styles : darkTheme}}>
-            <Marker key = {1} position = {{lat : 46.753350 , lng : 23.576040}}/>
-            <Marker key = {2} position = {{lat : 46.783280 , lng : 23.631000}}/>
-            <Marker key = {3} position = {{lat : 46.750930 , lng : 23.596210}}/>
-            <Marker key = {4} position = {{lat : 46.770910 , lng : 23.593310}}/>
-            <Marker key = {5} position = {{lat : 46.767700 , lng : 23.624330}}/>
+        defaultCenter = {{lat : 46.770920 , lng : 23.589920}}>
+            <Marker key = {1} position = {{lat : 46.753350 , lng : 23.576040}} icon = {{url : "/images/P.png" , scaledSize : new window.google.maps.Size(50 , 50)}}/>
+            <Marker key = {2} position = {{lat : 46.783280 , lng : 23.631000}} icon = {{url : "/images/P.png" , scaledSize : new window.google.maps.Size(50 , 50)}}/>
+            <Marker key = {3} position = {{lat : 46.750930 , lng : 23.596210}} icon = {{url : "/images/P.png" , scaledSize : new window.google.maps.Size(50 , 50)}}/>
+            <Marker key = {4} position = {{lat : 46.770910 , lng : 23.593310}} icon = {{url : "/images/P.png" , scaledSize : new window.google.maps.Size(50 , 50)}}/>
+            <Marker key = {5} position = {{lat : 46.767700 , lng : 23.624330}} icon = {{url : "/images/P.png" , scaledSize : new window.google.maps.Size(50 , 50)}}/>
         </GoogleMap>
     );
 }
@@ -23,8 +22,8 @@ const REACT_APP_MY_GOOGLE_MAPS_API = process.env.REACT_APP_MY_GOOGLE_MAPS_API;
 
 const Contact = () => {
     return (
-        <div id = "contact" className = "grid grid-areas-contact-layout h-screen w-11/12">
-            <div className = "grid grid-in-map bg-black">
+        <div id = "contact" className = "grid grid-areas-contact-layout w-11/12">
+            <div className = "grid grid-in-map bg-black h-screen">
             <WrappedMap 
                         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${REACT_APP_MY_GOOGLE_MAPS_API}`}
                         loadingElement={<div style={{ height: `100%` }} />}

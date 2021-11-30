@@ -1,6 +1,4 @@
-import { getCookie } from "cookies";
 import menuItems from "Menu/Constants";
-import addToCart from "Menu/logic";
 
 function usefulCartData(userData){
     var convertedData = [];
