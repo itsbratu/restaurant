@@ -115,10 +115,42 @@ app.post("/addUserItem" , async (req , res) => {
     )
 })
 
+app.post("/deleteUserItem" , async (req , res) => {
+    const addEntry = req.body.entry;
+    const {idItem , user , quantity} = addEntry;
+
+    users_db.query(
+        "SELECT * FROM cart WHERE idItem = ? AND user = ?",
+        [idItem , user],
+        (errExists , row) => {
+            if(errExists){console.log(errExists);}
+            else{
+                if(quantity != 1 || row[0].quantity == 1){
+                    users_db.query(
+                        "DELETE FROM cart WHERE (user = ? AND idItem = ?)",
+                        [user , idItem],
+                        (errDelete , _) => {
+                            if(errDelete){console.log(errDelete);}
+                        }
+                    )
+                }else{
+                    users_db.query(
+                        "UPDATE cart SET quantity = ? WHERE (user = ? AND idItem = ?)",
+                        [row[0].quantity - 1 , user , idItem],
+                        (errUpdate , _) => {
+                            if(errUpdate){console.log(errUpdate)}
+                        }
+                    )
+                    res.send(`Quantity for item ${idItem} and user ${user} UPDATED!`);
+                }
+            }
+        }
+    )
+})
+
 
 app.post("/myItems" , async (req , res) => {
     const currUser = req.body.user;
-    console.log(currUser);
     users_db.query(
         "SELECT * FROM cart WHERE (user = ?)",
         [currUser],

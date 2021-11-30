@@ -91,6 +91,17 @@ module.exports = {
           'addresses logo-social phone',
           'addresses logo-social phone',
         ],
+        'cart-layout': [
+          'cart cart cart',
+          'cart cart cart',
+          'cart cart cart',
+          'cart cart cart',
+          'map map map',
+          'map map map',
+          'map map map',
+          'user user user',
+          'user user user',
+        ]
       },
       animation: {
         fadeIn: "fadeIn 1s ease-in forwards"
