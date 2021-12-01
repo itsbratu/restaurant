@@ -1,6 +1,6 @@
 import menuItems from "Menu/Constants";
 
-function usefulCartData(userData){
+function dataCartFormat(userData){
     var convertedData = [];
     userData.forEach((userItem) => {
         for(let key in menuItems){
@@ -18,4 +18,4 @@ function usefulCartData(userData){
     return convertedData;
 }
 
-export default usefulCartData;
+export default dataCartFormat;
