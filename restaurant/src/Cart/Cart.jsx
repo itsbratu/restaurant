@@ -6,6 +6,9 @@ import dataCartFormat from './logic';
 import CartItem from './CartItem';
 import InputAddress from './InputAddress';
 import DefaultMap from './DefaultMap';
+import MarkerWithLabel from "react-google-maps/lib/components/addons/MarkerWithLabel";
+import { coordsLine } from './logic';
+
 
 import Geocode from "react-geocode";
 import { GoogleMap , withScriptjs , withGoogleMap , Marker , Polyline , DirectionsRenderer} from 'react-google-maps';
@@ -94,8 +97,8 @@ const Cart = () =>{
     function validateInput(streetInput , numberInput , apInput ,  phoneInput , setInvalidAddress){
         var invalidAddress = {invalidStreet : false , invalidNumber : false , invalidAp : false , invalidPhone : false};
         let phoneRegex = new RegExp("^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$");
-        let numberRegex = new RegExp("^[1-9][0-9]?$|^1000$");
-        let apRegex = new RegExp("^[1-9][0-9]?$|^1000$");
+        let numberRegex = new RegExp("^[1-9][0-9]?$|^500$");
+        let apRegex = new RegExp("^[1-9][0-9]?$|^500$");
         if(streetInput.length <= 0){
             invalidAddress.invalidStreet = true;
         }
@@ -112,8 +115,7 @@ const Cart = () =>{
             setInvalidAddress(invalidAddress);
         }else{
             getPosition();
-        }
-        
+        } 
     }
 
     useEffect(()=>{
@@ -135,15 +137,26 @@ const Cart = () =>{
     }
 
     function PathMap(){
+        var pathCoords = coordsLine(position.lat , position.lng);
+        var coordsMiddlePath = {lat : ((pathCoords[0].lat + pathCoords[1].lat)/2) , lng : ((pathCoords[0].lng + pathCoords[1].lng)/2)}
         return(
-            <GoogleMap defaultZoom = {16} 
-            defaultCenter = {{lat : position.lat , lng : position.lng}}>
+            <GoogleMap defaultZoom = {15} 
+            defaultCenter = {{lat : coordsMiddlePath.lat , lng : coordsMiddlePath.lng}}>
                 <Marker key = {1} position = {{lat : 46.753350 , lng : 23.576040}} icon = {{url : "/images/P.png" , scaledSize : new window.google.maps.Size(50 , 50)}}/>
                 <Marker key = {2} position = {{lat : 46.783280 , lng : 23.631000}} icon = {{url : "/images/P.png" , scaledSize : new window.google.maps.Size(50 , 50)}}/>
                 <Marker key = {3} position = {{lat : 46.750930 , lng : 23.596210}} icon = {{url : "/images/P.png" , scaledSize : new window.google.maps.Size(50 , 50)}}/>
                 <Marker key = {4} position = {{lat : 46.770910 , lng : 23.593310}} icon = {{url : "/images/P.png" , scaledSize : new window.google.maps.Size(50 , 50)}}/>
                 <Marker key = {5} position = {{lat : 46.767700 , lng : 23.624330}} icon = {{url : "/images/P.png" , scaledSize : new window.google.maps.Size(50 , 50)}}/>
                 <Marker key = {6} position = {{lat : position.lat , lng : position.lng}} icon = {{url : "/images/home-map.png" , scaledSize : new window.google.maps.Size(50 , 50)}}/>
+                <Polyline 
+                    path = {pathCoords}
+                    geodesic = {true}
+                    options={{
+                        strokeColor: "#000000",
+                        strokeOpacity: 1,
+                        strokeWeight: 2,
+                    }}
+                />
             </GoogleMap>
         )
     }
@@ -182,7 +195,7 @@ const Cart = () =>{
                         );  
                     })}
                     <div className = "flex items-center justify-center h-1/6 w-full ">
-                        <h1 className = "text-5xl font-general-font ">Total : {calculateTotal()} <i class="fas fa-dollar-sign"></i> </h1>
+                        <h1 className = "text-5xl font-general-font select-none">Total : {calculateTotal().toFixed(2)} <i class="fas fa-dollar-sign"></i> </h1>
                     </div>
                 </div>
             </div>
