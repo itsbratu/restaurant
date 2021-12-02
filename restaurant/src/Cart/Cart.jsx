@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react';
+import { useState , useEffect} from 'react';
+import { useHistory } from 'react-router';
 import { getCookie } from 'cookies';
 import Axios from 'axios'
 import dataCartFormat from './logic';
 import CartItem from './CartItem';
 import InputAddress from './InputAddress';
 import DefaultMap from './DefaultMap';
-import MarkerWithLabel from "react-google-maps/lib/components/addons/MarkerWithLabel";
+import { ROUTES_WITHOUT_HOMEPAGE } from 'Register/constants';
 import { coordsLine } from './logic';
 
 
@@ -21,33 +21,33 @@ Geocode.setApiKey(`${REACT_APP_MY_GEOCODE_API}`);
 Geocode.setLanguage("en");
 Geocode.setRegion("ro");
 
-const Cart = () =>{
+const Cart = (props) =>{
 
     const [shoppingItems , setShoppingItems] = useState([]);
-    const [street , setStreet] = useState('');
-    const [streetNumber , setStreetNumber] = useState('');
-    const [phone , setPhone] = useState('');
-    const [apartament , setApartment] = useState('');
     const [position , setPosition] = useState({lat : 0 , lng : 0});
     const [invalidAddress , setInvalidAddress] = useState({invalidStreet : false , invalidNumber : false , invalidAp : false , invalidPhone : false})
 
-    function removeFromCart(id) {
-        const oldItem = shoppingItems.find(it => it.id === id)
-        const currentItem = {idItem : id , user : getCookie('email') , quantity : oldItem.quantity};
-        Axios.post("http://localhost:4000/deleteItem", {
-            entry : currentItem
+    useEffect(()=>{
+        Axios.post("http://localhost:4000/myItems" , {
+            user : getCookie('email') ,
+        }).then(response =>{
+            setShoppingItems(dataCartFormat(response.data));
+        }).catch(error =>{
+            console.log(error);
         })
-        .then(() => {
-            const newItems = [...shoppingItems].filter(it => it.id !== id)
-            setShoppingItems(newItems)
-        })
-        .catch(console.log)
-    }
+    } , [])
+
+    let routing = useHistory();
+    const currentLocation = props.location.pathname;
+    if(ROUTES_WITHOUT_HOMEPAGE[currentLocation]) return null;
+
+    const WrapperDefaultMap = withScriptjs(withGoogleMap(DefaultMap));
+    const WrapperUserMap = withScriptjs(withGoogleMap(PathMap));
 
     function incrementItem(id) {
         const oldItemIndex = shoppingItems.findIndex(it => it.id === id)
         const currentItem = {idItem : id , user : getCookie('email') , quantity : 1};
-        Axios.post("http://localhost:4000/addItem", {
+        Axios.patch("http://localhost:4000/addItem", {
             entry : currentItem
         })
         .then(() => {
@@ -76,9 +76,23 @@ const Cart = () =>{
         .catch(console.log)
     }
 
+    function removeFromCart(id) {
+        const oldItem = shoppingItems.find(it => it.id === id)
+        const currentItem = {idItem : id , user : getCookie('email') , quantity : oldItem.quantity};
+        Axios.post("http://localhost:4000/deleteItem", {
+            entry : currentItem
+        })
+        .then(() => {
+            const newItems = [...shoppingItems].filter(it => it.id !== id)
+            setShoppingItems(newItems)
+        })
+        .catch(console.log)
+    }
+
     function getPosition(){
-        var userAddress = "Cluj-Napoca ," + " strada " + street + " nr." + streetNumber;
-        if(apartament.length > 0){userAddress += ", " + "ap." + apartament} 
+        const {streetInput , numberInput , apInput , phoneInput} = getDataInput();
+        var userAddress = "Cluj-Napoca ," + " strada " + streetInput + " nr." + numberInput;
+        if(apInput.length > 0){userAddress += ", " + "ap." + apInput} 
         Geocode.fromAddress(userAddress).then(
             (response) => {
               const { lat, lng } = response.results[0].geometry.location;
@@ -94,7 +108,17 @@ const Cart = () =>{
           );
     }
 
-    function validateInput(streetInput , numberInput , apInput ,  phoneInput , setInvalidAddress){
+    function getDataInput(){
+        var userInputs = {streetInput : "" , numberInput : "" , apInput : "" , phoneInput : ""};
+        ["streetInput","numberInput","apInput","phoneInput"].map((currentInputField) => {
+            userInputs[currentInputField] = document.getElementById(currentInputField).value;
+        })
+        return userInputs;
+    }
+
+    function validateInput(setInvalidAddress){
+        const {streetInput , numberInput , apInput , phoneInput} = getDataInput();
+        console.log(streetInput , numberInput , apInput , phoneInput);
         var invalidAddress = {invalidStreet : false , invalidNumber : false , invalidAp : false , invalidPhone : false};
         let phoneRegex = new RegExp("^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$");
         let numberRegex = new RegExp("^[1-9][0-9]?$|^500$");
@@ -118,15 +142,18 @@ const Cart = () =>{
         } 
     }
 
-    useEffect(()=>{
-        Axios.post("http://localhost:4000/myItems" , {
-            user : getCookie('email') ,
-        }).then(response =>{
-            setShoppingItems(dataCartFormat(response.data));
-        }).catch(error =>{
-            console.log(error);
-        })
-    } , [])
+    function placeOrder(){
+        // const oldItem = shoppingItems.find(it => it.id === id)
+        // const currentItem = {idItem : id , user : getCookie('email') , quantity : oldItem.quantity};
+        // Axios.post("http://localhost:4000/deleteItem", {
+        //     entry : currentItem
+        // })
+        // .then(() => {
+        //     const newItems = [...shoppingItems].filter(it => it.id !== id)
+        //     setShoppingItems(newItems)
+        // })
+        // .catch(console.log)
+    }
 
     function calculateTotal(){
         var totalSum = 0;
@@ -161,9 +188,6 @@ const Cart = () =>{
         )
     }
 
-    const WrapperDefaultMap = withScriptjs(withGoogleMap(DefaultMap));
-    const WrapperUserMap = withScriptjs(withGoogleMap(PathMap));
-
     function switchMapRender(){
         if(position.lat == 0 && position.lng == 0){
             return(
@@ -187,7 +211,7 @@ const Cart = () =>{
 
     return(
         <div className = "grid gap-5 grid-areas-cart-layout h-auto mx-10 my-10">
-            <div className = "grid grid-in-cart bg-gray-100 h-screen">
+            <div className = "grid grid-in-cart bg-gradient-to-t from-blue-200 to-blue-400 h-screen rounded-3xl">
                 <div className = "flex flex-col justify-start m-5">
                     {shoppingItems.map((currentItem) => {
                         return(
@@ -203,14 +227,21 @@ const Cart = () =>{
                 {switchMapRender()}
             </div>
             <div className = "grid grid-in-contact-user bg-gray-100 rounded-3xl h-full">
-                <div className = "flex flex-col m-5 bg-gray-400 rounded-3xl items-center justify-evenly">
-                    <InputAddress name = {"Street"} setProperty = {setStreet} invalidInput = {invalidAddress.invalidStreet}/>
-                    <InputAddress name = {"Street number"} setProperty = {setStreetNumber} invalidInput = {invalidAddress.invalidNumber}/>
-                    <InputAddress name = {"Apartment"} setProperty = {setApartment} invalidInput = {invalidAddress.invalidAp}/>
-                    <InputAddress name = {"Phone number"} setProperty = {setPhone} invalidInput = {invalidAddress.invalidPhone}/>
-                    <button className = "w-1/4 h-1/6 font-extrabold font-general-font text-4xl animation ease-in-out duration-300 transform hover:scale-125" onClick = {() => {validateInput(street , streetNumber , apartament , phone , setInvalidAddress)}}>Find me!</button>
+                <div className = "flex flex-col m-5 bg-gradient-to-b from-blue-200 to-blue-400 rounded-3xl items-center justify-evenly">
+                    <InputAddress id = {"streetInput"} name = {"Street"} invalidInput = {invalidAddress.invalidStreet}/>
+                    <InputAddress id = {"numberInput"} name = {"Street number"} invalidInput = {invalidAddress.invalidNumber}/>
+                    <InputAddress id = {"apInput"} name = {"Apartment"} invalidInput = {invalidAddress.invalidAp}/>
+                    <InputAddress id = {"phoneInput"} name = {"Phone number"} invalidInput = {invalidAddress.invalidPhone}/>
+                    <button className = "w-1/4 h-1/6 font-extrabold font-general-font text-4xl animation ease-in-out duration-300 transform hover:scale-125" onClick = {() => {validateInput(setInvalidAddress)}}>Find me!</button>
                 </div>
             </div>
+            {(position.lat !=0) && (position.lng !=0 ) && ((!invalidAddress.invalidStreet) && (!invalidAddress.invalidNumber) && (!invalidAddress.invalidAp) && (!invalidAddress.invalidPhone)) &&
+                        <div className = "grid grid-in-order w-full h-96">
+                        <div className = "flex flex-row w-1/3 h-1/3 relative top-1/3 left-1/3">
+                            <button className = "m-5 bg-gradient-to-b from-blue-200 to-blue-400 w-full h-2/3 text-order font-artistic shadow-xl animation ease-in-out duration-300 transform hover:scale-125" onClick = {() => {placeOrder()}}>Order!</button>
+                        </div>
+                    </div>
+            }
         </div>
     );
 }

@@ -17,13 +17,12 @@ import Tippy from '@tippyjs/react'
 const Home = (props)=>{
 
     const [showSideBar , setShowSideBar] = useState(false);
+    const [loggedUser , setLoggedUser] = useState(null);
 
     const clearCookies = () =>{
         eraseCookie("email");
         setLoggedUser(null);
     }
-    
-    const [loggedUser , setLoggedUser] = useState(null);
     
     if(getCookie("email") != null && loggedUser == null){
         setLoggedUser(getCookie("email"));

@@ -81,7 +81,7 @@ app.post("/register" , async (req , res)=>{
     );
 });
 
-app.post("/addItem" , async (req , res) => {
+app.patch("/addItem" , async (req , res) => {
     const addEntry = req.body.entry;
     const {idItem , user , quantity} = addEntry;
 
@@ -116,8 +116,8 @@ app.post("/addItem" , async (req , res) => {
 })
 
 app.post("/deleteItem" , async (req , res) => {
-    const deleteEntry = req.body.entry;
-    const {idItem , user , quantity} = deleteEntry;
+    const entry = req.body.entry;
+    const {idItem , user , quantity} = entry;
 
     users_db.query(
         "SELECT * FROM cart WHERE idItem = ? AND user = ?",

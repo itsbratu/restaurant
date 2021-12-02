@@ -22,6 +22,7 @@ module.exports = {
       'home-logo' : '6rem',
       'tooltip' : '1.75rem',
       'price' : '2.5rem',
+      'order' : '3.5rem',
     },
     fontFamily : {
       'general-font' : ['Roboto Mono'],

@@ -43,7 +43,6 @@ export function coordsLine(homeLat , homeLng){
 
     markers.map((currentMarker) => {
         const currentDistance = getDistanceFromLatLonInKm(homeLat , homeLng , currentMarker.position.lat , currentMarker.position.lng);
-        console.log(currentDistance);
         if(currentDistance < minimumDistance){
             minimumDistance = currentDistance;
             destinationCoords.lat = currentMarker.position.lat;
